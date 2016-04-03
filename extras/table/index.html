@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<title>HCG color model</title>
+<script src="../../convert/hcg-original.js"></script>
+<style>
+	* {
+		font-family: Consolas;
+	}
+
+	#table {
+	}
+	
+	.row {
+		height: 30px;
+	}
+	
+	.color {
+		width: 60px;
+		height: 30px;
+		display: inline-block;
+		box-sizing: border-box;
+		border: solid 1px black;
+	}
+	
+	.text {
+		box-sizing: border-box;
+		width: 140px;
+		font-size: 12px;
+		height: 30px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	
+	.caps {
+		font-size: 15px;
+	}
+</style>
+</head>
+<body>
+
+<div id="table">
+	<div class="row">
+		<div class="color"></div>
+		<div class="text caps">RGB</div>
+		<div class="text caps">HCG</div>
+		<div class="text caps">HSV</div>
+		<div class="text caps">HSL</div>
+	</div>
+
+</div>
+
+<script>
+(function(){
+	var table = document.getElementById("table");
+	
+	var colors = [
+		[0, 0, 0], 
+		[128, 128, 128],
+		[255, 255, 255],
+		
+		[128, 0, 0], 
+		[192, 64, 64],
+		[192, 128, 128],
+		[255, 128, 128],
+		[255, 0, 0],
+		
+		[128, 128, 0], 
+		[192, 192, 64],
+		[192, 192, 128],
+		[255, 255, 128],
+		[255, 255, 0], 
+		
+		[255, 192, 0], 
+		[255, 128, 0], 
+		
+		[0, 128, 0], 
+		[0, 128, 128], 
+		[0, 0, 128],
+		
+		[0, 255, 0], 
+		[0, 255, 255], 
+		[0, 0, 255], 
+		
+		[128, 255, 128], 
+		[128, 255, 255], 
+		[128, 128, 255],
+		
+		[64, 192, 64], 
+		[64, 192, 192], 
+		[64, 64, 192]
+	/*
+		[0, 0, 0], 
+		[127, 127, 127], 
+		[136, 0, 21], 
+		[237, 28, 36],
+		[255, 127, 39],
+		[255, 242, 0],
+		[34, 177, 76], 
+		[0, 162, 232],
+		[63, 72, 204],
+		[163, 73, 164], 
+		
+		
+		
+		[255, 255, 255], 
+		[195, 195, 195], 
+		[185, 122, 87], 
+		[255, 174, 201], 
+		[255, 201, 14], 
+		[239, 228, 176], 
+		[181, 230, 29], 
+		[153, 217, 234], 
+		[112, 146, 190], 
+		[200, 191, 231]*/
+	];
+	
+	for(var i=0;i<colors.length;i++){
+		var colorv = [];
+		for(var j=0;j<3;j++){
+			colorv[j] = colors[i][j];
+		}
+		var colorref = colors[i];
+		
+		var row = document.createElement("div");
+		row.classList.add("row");
+		table.appendChild(row);
+		
+		var color = document.createElement("div");
+		color.classList.add("color");
+		color.style.backgroundColor = "rgb("+colorref[0].toFixed(0)+","+colorref[1].toFixed(0)+","+colorref[2].toFixed(0)+")";
+		row.appendChild(color);
+		
+		var rgb = document.createElement("div");
+		rgb.classList.add("text");
+		rgb.innerHTML = "(" + colorref[0].toFixed(0)+", "+colorref[1].toFixed(0)+", "+colorref[2].toFixed(0) + ")";
+		row.appendChild(rgb);
+		
+		var hcgv = rgb2hcg(colorv);
+		
+		var hcg = document.createElement("div");
+		hcg.classList.add("text");
+		hcg.innerHTML = "(" + (hcgv[0]).toFixed(0)+", "+(hcgv[1]).toFixed(0)+", "+(hcgv[2]).toFixed(0) + ")";
+		row.appendChild(hcg);
+		
+		var hsvv = hcg2hsv(hcgv);
+		var hsv = document.createElement("div");
+		hsv.classList.add("text");
+		hsv.innerHTML = "(" + (hsvv[0]).toFixed(0)+", "+(hsvv[1]).toFixed(0)+", "+(hsvv[2]).toFixed(0) + ")";
+		row.appendChild(hsv);
+		
+		var hslv = hcg2hsl(hcgv);
+		var hsl = document.createElement("div");
+		hsl.classList.add("text");
+		hsl.innerHTML = "(" + (hslv[0]).toFixed(0)+", "+(hslv[1]).toFixed(0)+", "+(hslv[2]).toFixed(0) + ")";
+		row.appendChild(hsl);
+		
+		
+	}
+})();
+</script>
+
+
+
+
+<a href="https://github.com/acterhd/hcg"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+</body>
+</html>
