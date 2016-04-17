@@ -3,10 +3,6 @@
 
 <img src="/images/munsell.jpg?raw=true" alt="Munsell model" width="300">
 
-### Color pickers
-- [HCG color picker](http://acterhd.github.io/hcg-color/colorpicker/index.html) <br>
-- [HCG color picker (Shadertoy)](https://www.shadertoy.com/view/ldK3Wh) <br>
-
 ### Info
 HCG color model represents _Hue_, _Chroma_ and _Grays_ channels. The main idea behind the color space is to be able to change the shade of gray without affecting  saturation.
 
