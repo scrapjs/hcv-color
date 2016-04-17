@@ -6,7 +6,7 @@
 ### Info
 HCG color model represents _Hue_, _Chroma_ and _Grays_ channels. The main idea behind the color space is to be able to change the shade of gray without affecting  saturation.
 
-Unlike the HSV and HSL, HCG does only one mixing of a hue tones with a grayscale tones. In other words, that reflects the ratio between the pure tone and a neutral shade of gray, whereas HSL and HSV models describe how much the color is bright. In that, with HCG you can just pick a tone and change it’s lightness within all the available range for the constant chroma (see [demo](http://acterhd.github.io/hcg-color/colorpicker/index.html)), whereas in HSL changing the lightness causes shift of chroma, as the lightness spans from pure white to pure black.
+Unlike the HSV and HSL, HCG does only one mixing of a hue tones with a grayscale tones. In other words, that reflects the ratio between the pure tone and a neutral shade of gray, whereas HSL and HSV models describe how much the color is bright. In that, with HCG you can just pick a tone and change it’s lightness within all the available range for the constant chroma, whereas in HSL changing the lightness causes shift of chroma, as the lightness spans from pure white to pure black.
 
 ##### HCG:
 <img src="/images/figure1.png?raw=true" alt="HCG model" width="400">
