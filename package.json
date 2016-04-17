@@ -9,13 +9,9 @@
 		"pretest": "xo convert/hcg.js",
 		"test": "node convert/basic.js"
 	},
-	"keywords": [
-		"hcg", "hct"
-	],
-	"files": [
-		"convert/hcg.js"
-	],
-	"main" : "convert/hcg-original.js",
+	"keywords": ["hcg"],
+	"files": ["convert/hcg.js"],
+	"main" : "convert/hcg.js",
 	"xo": {
 		"space": 4,
 		"rules": {
