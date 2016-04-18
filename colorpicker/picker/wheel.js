@@ -1,11 +1,7 @@
 (function () {
     "use strict";
 
-    let css = `
-.wheel-input {
-    width: 200px;
-}
-    `;
+    var css = ``;
 
     var style = document.createElement("style");
     style.type = "text/css";
@@ -70,29 +66,34 @@
     }
 
     class Wheel {
-        constructor() {
+        constructor(_canvas, source) {
             this.func = hcg2rgb;
+            this.glslFunc = `
+vec3 hcg2rgb(in vec3 c){
+    vec3 rgb = clamp( abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0, 0.0, 1.0 );
+    return mix(vec3(c.z), rgb, c.y);
+}
+            `;
             this.channel = [H, C, G];
-
-            this.hcg = [0.1, 0.5, 1];
+            this.hcg = source || [0.1, 0.5, 1];
+            
+            this.width = 200;
+            this.height = 200;
+            
             {
                 let opts = { "preserveDrawingBuffer": true };
-                let canvas = document.createElement("canvas")
+                let canvas = document.createElement("canvas");
                 this.gl = canvas.getContext("webgl", opts) || canvas.getContext("experimental-webgl", opts);
             }
             this.ctx = document.createElement("canvas").getContext("2d");
-            this.rtx = document.createElement("canvas").getContext("2d");
+            this.rtx = (_canvas || document.createElement("canvas")).getContext("2d");
+            this.rtx.canvas.style.width = this.width + "px";
             this.pad = 2;
 
             this.center = new Vec2(0.5, 0.5);
             this.radius = 0.4;
-
             this.press = false;
-            this.width = 200;
-            this.height = 200;
-
-            this.rtx.canvas.classList.add("wheel-input");
-
+            
             { //Init bindings
                 let canvas = this.rtx.canvas;
                 let self = this;
@@ -159,6 +160,16 @@
                 let gl = this.gl;
                 let canvas = gl.canvas;
 
+                let vshader = `
+precision highp float;
+attribute vec2 pos;
+varying vec2 vpos;
+void main(){
+    gl_Position = vec4(pos * 2.0 - 1.0, 0.0, 1.0);
+    vpos = pos;
+}
+`
+
                 let fshader = `
 precision highp float;
 varying vec2 vpos;
@@ -170,10 +181,9 @@ uniform float gray;
 uniform circle hc;
 uniform vec2 resolution;
 const float PI = 3.14159265359;
-vec3 hcg2rgb(in vec3 c){
-    vec3 rgb = clamp( abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0, 0.0, 1.0 );
-    return mix(vec3(c.z), rgb, c.y);
-}
+
+${this.glslFunc}
+
 const float wx = 2.0;
 const float wy = 2.0;
 void main(){
@@ -201,17 +211,6 @@ void main(){
     gl_FragColor = color;
 }
 `
-
-                let vshader = `
-precision highp float;
-attribute vec2 pos;
-varying vec2 vpos;
-void main(){
-    gl_Position = vec4(pos * 2.0 - 1.0, 0.0, 1.0);
-    vpos = pos;
-}
-`
-
                 gl.clearColor(0.0, 0.0, 0.0, 0.0);
                 gl.disable(gl.BLEND);
                 gl.disable(gl.DEPTH_TEST);
@@ -249,23 +248,6 @@ void main(){
                     0.0, 1.0,
                     1.0, 1.0
                 ]), gl.STATIC_DRAW);
-            }
-
-            //this.draw();
-
-            {
-                let self = this;
-
-                function _draw(){
-                    _tick();
-                    self.draw();
-                }
-
-                function _tick(){
-                    requestAnimationFrame(_draw);
-                }
-
-                _tick();
             }
         }
 
@@ -335,12 +317,12 @@ void main(){
                 ctx.save();
 
                 ctx.scale(devicePixelRatio, devicePixelRatio);
-                ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
+                ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+                ctx.lineWidth = 1.5;
+                ctx.strokeStyle = "rgba(0, 0, 0, 0.5)";
 
                 ctx.beginPath();
-                ctx.arc(center.x, center.y, 4, 0, 2 * Math.PI, false);
+                ctx.arc(Math.round(center.x), Math.round(center.y), 4, 0, 2 * Math.PI, false);
                 ctx.fill();
                 ctx.stroke();
                 ctx.closePath();
@@ -374,8 +356,8 @@ void main(){
             let xy = coord.div(res).mul(new Vec2(aspect, 1.0)).sub(new Vec2(1.0 - ce, 0.0).mul(aspect * 0.5));
             let n = (xy.sub(this.center)).div(this.radius);
             let rad = mod(-n.atan() - Math.PI, Math.PI * 2.0);
-            let len = n.length(); //Math.clamp(n.length(), 0.0, 1.0);
-
+            let len = n.length(); 
+            
             var hcg = Array.from(this.hcg);
             hcg[this.channel[0]] = rad / (Math.PI * 2.0);
             hcg[this.channel[1]] = len;
@@ -403,8 +385,8 @@ void main(){
         }
 
         synchronize(hcg) {
-            _set(this.hcg, hcg);
-            //this.draw();
+            if(hcg) _set(this.hcg, hcg);
+            this.draw();
             return this;
         }
     }

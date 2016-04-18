@@ -1,6 +1,30 @@
 (function () {
     "use strict";
 
+    let track = `
+{
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    border: none;
+}
+    `
+    
+    let thumb = `
+{
+    border-radius: 0px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 6px;
+    height: 20px;
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+    `
+
     let css = `
 .color-input {
     appearance: none;
@@ -9,55 +33,19 @@
     width: 200px;
     height: 20px;
     padding: 0;
+    background-repeat: no-repeat;
+    background-size: calc(100% - 6px) 100%;
+    background-position: center center;
     background-color: transparent;
     background-origin: content-box;
     background-clip: content-box;
-    border: solid 1px gray;
     outline: none;
 }
 
-.color-input::-webkit-slider-thumb
-{
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: rgba(255, 255, 255, 0.75);
-    width: 6px;
-    height: 20px;
-    border: solid 1px rgb(0, 0, 0);
-    box-sizing: border-box;
-}
-
-.color-input::-moz-range-thumb
-{
-    border-radius: 0px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: rgba(255, 255, 255, 0.75);
-    width: 6px;
-    height: 20px;
-    border: solid 1px rgb(0, 0, 0);
-    box-sizing: border-box;
-}
-
-.color-input::-webkit-slider-runnable-track
-{
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    border: none;
-    padding: 0;
-}
-
-.color-input::-moz-range-track
-{
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    border: none;
-    padding: 0;
-}
+.color-input::-webkit-slider-thumb ${thumb}
+.color-input::-webkit-slider-runnable-track ${track}
+.color-input::-moz-range-thumb ${thumb}
+.color-input::-moz-range-track ${track}
     `;
 
 var style = document.createElement("style");
@@ -123,11 +111,11 @@ document.querySelectorAll("head")[0].appendChild(style);
     }
 
     class Slider {
-        constructor(){
-            this.input = document.createElement("input");
+        constructor(input, source){
+            this.input = input || document.createElement("input");
             this.channel = H;
             this.gcount = 2;
-            this.hcg = [0, 1, 1];
+            this.hcg = source || [0, 1, 1];
             this.min = 0;
             this.max = 1;
             this.init();
@@ -172,8 +160,10 @@ document.querySelectorAll("head")[0].appendChild(style);
         }
 
         synchronize(hcg){
-            _set(this.hcg, hcg);
-            this.input.value = this.hcg[this.channel];
+            if(hcg) _set(this.hcg, hcg);
+            if(this.input.value != this.hcg[this.channel]) {
+                this.input.value = this.hcg[this.channel];
+            }
             this.draw();
             return this;
         }
@@ -185,8 +175,8 @@ document.querySelectorAll("head")[0].appendChild(style);
     }
 
     class HueSlider extends Slider {
-        constructor(){
-            super();
+        constructor(input, source){
+            super(input, source);
             this.func = hcg2rgb;
             this.gcount = 7;
             this.channel = H;
@@ -195,8 +185,8 @@ document.querySelectorAll("head")[0].appendChild(style);
     }
 
     class ChromaSlider extends Slider {
-        constructor(){
-            super();
+        constructor(input, source){
+            super(input, source);
             this.func = hcg2rgb;
             this.channel = C;
             this.init();
@@ -204,8 +194,8 @@ document.querySelectorAll("head")[0].appendChild(style);
     }
 
     class GraySlider extends Slider {
-        constructor(){
-            super();
+        constructor(input, source){
+            super(input, source);
             this.func = hcg2rgb;
             this.channel = G;
             this.init();
