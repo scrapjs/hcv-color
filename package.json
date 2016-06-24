@@ -6,8 +6,7 @@
 	"license": "MIT",
 	"repository": "https://github.com/acterhd/hcg-color.git",
 	"scripts": {
-		"pretest": "xo convert/hcg.js",
-		"test": "node convert/basic.js"
+		"test": "xo convert/hcg.js"
 	},
 	"keywords": ["hcg"],
 	"files": ["convert/hcg.js"],
