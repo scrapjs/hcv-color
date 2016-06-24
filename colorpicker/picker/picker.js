@@ -8,39 +8,38 @@
             background-color: rgb(192, 192, 192);
             border: solid 1px rgb(128, 128, 128);
             border-radius: 2px;
-            width: max-content;
-            width: -moz-max-content;
+            width: 460px;
         }
-        
+
         .color-cell {
         }
-        
+
         .color-channel0, .color-channel1, .color-channel2 {
-            
+
         }
-        
+
         .color-result-container {
             display: flex;
             flex-direction: row;
         }
-        
+
         .color-result-fill {
             width: 40px;
             height: 40px;
             border: solid 1px rgb(128, 128, 128);
         }
-        
+
         .color-result-input, .color-result-output {
             padding-left: 5px;
             font-family: Consolas;
         }
     `;
-    
+
 var style = document.createElement("style");
 style.type = "text/css";
 style.innerHTML = css;
 document.querySelectorAll("head")[0].appendChild(style);
-    
+
     const H = 0;
     const C = 1;
     const G = 2;
@@ -102,7 +101,7 @@ document.querySelectorAll("head")[0].appendChild(style);
         constructor(){
             this.hcg = [0, 1, 1];
             this.container = document.createElement("div");
-            
+
             {
                 let that = this;
                 let container = this.container;
@@ -128,24 +127,24 @@ document.querySelectorAll("head")[0].appendChild(style);
                         </div>
                     </div>
                 `;
-                
+
                 this.c0 = new HueSlider(container.querySelector(".color-channel0"), this.hcg);
                 this.c1 = new ChromaSlider(container.querySelector(".color-channel1"), this.hcg);
                 this.c2 = new GraySlider(container.querySelector(".color-channel2"), this.hcg);
                 this.cg = new Wheel(container.querySelector(".color-wheel"), this.hcg);
-                
-                this.c2.onchange = 
-                this.c1.onchange = 
-                this.c0.onchange = 
+
+                this.c2.onchange =
+                this.c1.onchange =
+                this.c0.onchange =
                 this.cg.onchange = function(){
                     that.synchronize();
                 }
-                
+
                 this.inputText = container.querySelector(".color-result-input");
                 this.outputText = container.querySelector(".color-result-output");
                 this.fillRect = container.querySelector(".color-result-fill");
             }
-            
+
             this.synchronize();
         }
 
@@ -154,7 +153,7 @@ document.querySelectorAll("head")[0].appendChild(style);
             this.fillRect.style.backgroundColor = _strc(rgb);
             this.inputText.innerHTML = _strh(this.hcg);
             this.outputText.innerHTML = _strc(rgb);
-            
+
             this.c0.synchronize();
             this.c1.synchronize();
             this.c2.synchronize();
