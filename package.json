@@ -20,7 +20,5 @@
 		}
 	},
 	"devDependencies": {
-		"chalk": "^1.1.1",
-		"xo": "^0.11.2"
 	}
 }
