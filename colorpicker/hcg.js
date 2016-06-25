@@ -27,11 +27,11 @@
             if (max === r) {
                 hue = mod((g - b) / chroma, 6);
             } else
-                if (max === g) {
-                    hue = 2 + (b - r) / chroma;
-                } else {
-                    hue = 4 + (r - g) / chroma;
-                }
+            if (max === g) {
+                hue = 2 + (b - r) / chroma;
+            } else {
+                hue = 4 + (r - g) / chroma;
+            }
             hue /= 6;
             hue = mod(hue, 1);
         } else {
@@ -53,17 +53,34 @@
         var w = 1 - v;
         switch (Math.floor(hi)) {
             case 0:
-                pure[0] = 1; pure[1] = v; pure[2] = 0; break;
+                pure[0] = 1;
+                pure[1] = v;
+                pure[2] = 0;
+                break;
             case 1:
-                pure[0] = w; pure[1] = 1; pure[2] = 0; break;
+                pure[0] = w;
+                pure[1] = 1;
+                pure[2] = 0;
+                break;
             case 2:
-                pure[0] = 0; pure[1] = 1; pure[2] = v; break;
+                pure[0] = 0;
+                pure[1] = 1;
+                pure[2] = v;
+                break;
             case 3:
-                pure[0] = 0; pure[1] = w; pure[2] = 1; break;
+                pure[0] = 0;
+                pure[1] = w;
+                pure[2] = 1;
+                break;
             case 4:
-                pure[0] = v; pure[1] = 0; pure[2] = 1; break;
+                pure[0] = v;
+                pure[1] = 0;
+                pure[2] = 1;
+                break;
             default:
-                pure[0] = 1; pure[1] = 0; pure[2] = w;
+                pure[0] = 1;
+                pure[1] = 0;
+                pure[2] = w;
         }
         var mg = (1.0 - c) * g;
         var rgb = [
