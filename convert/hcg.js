@@ -10,85 +10,45 @@
 
     // RGB functions
     function rgb2hcg(rgb) {
-        var r = rgb[0] / 255;
-        var g = rgb[1] / 255;
-        var b = rgb[2] / 255;
-        var max = Math.max(Math.max(r, g), b);
-        var min = Math.min(Math.min(r, g), b);
-        var chroma = (max - min);
-        var grayscale;
-        var hue;
-        if (chroma < 1) {
-            grayscale = min / (1 - chroma);
-        } else {
-            grayscale = 0;
-        }
-        if (chroma > 0) {
+        var r = rgb[0] / 255
+          , g = rgb[1] / 255
+          , b = rgb[2] / 255;
+        var max = Math.max(r, g, b);
+        var min = Math.min(r, g, b);
+        var c = (max - min), gr = 0, h = 0;
+        if (c < 1) { gr = min / (1 - chroma); }
+        if (c > 0) {
             switch (max) {
-                case r:
-                    hue = (g - b) / chroma + (g < b ? 6 : 0);
-                    break;
-                case g:
-                    hue = (b - r) / chroma + 2;
-                    break;
-                case b:
-                    hue = (r - g) / chroma + 4;
-                    break;
+                case r: h = (g - b) / chroma + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / chroma + 2; break;
+                case b: h = (r - g) / chroma + 4; break;
             }
-            hue /= 6;
-        } else {
-            hue = 0;
+            h /= 6;
         }
-        return [hue * 360, chroma * 100, grayscale * 100];
+        return [h * 360, c * 100, gr * 100];
     }
 
     function hcg2rgb(hcg) {
-        var h = hcg[0] / 360;
-        var c = hcg[1] / 100;
-        var g = hcg[2] / 100;
+        var h  = hcg[0] / 360
+          , c  = hcg[1] / 100
+          , gr = hcg[2] / 100;
         if (c === 0.0) {
-            return [g * 255, g * 255, g * 255];
+            return [gr * 255, gr * 255, gr * 255];
         }
-        var hi = mod(h, 1) * 6;
-        var v = mod(hi, 1);
-        var pure = [0, 0, 0];
-        var w = 1 - v;
-        switch (Math.floor(hi)) {
-            case 0:
-                pure[0] = 1;
-                pure[1] = v;
-                pure[2] = 0;
-                break;
-            case 1:
-                pure[0] = w;
-                pure[1] = 1;
-                pure[2] = 0;
-                break;
-            case 2:
-                pure[0] = 0;
-                pure[1] = 1;
-                pure[2] = v;
-                break;
-            case 3:
-                pure[0] = 0;
-                pure[1] = w;
-                pure[2] = 1;
-                break;
-            case 4:
-                pure[0] = v;
-                pure[1] = 0;
-                pure[2] = 1;
-                break;
-            default:
-                pure[0] = 1;
-                pure[1] = 0;
-                pure[2] = w;
-        }
-        var mg = (1.0 - c) * g;
+        var i = Math.floor(h),
+            f = h - i,
+            p = 0,
+            q = c * (1 - f),
+            t = c * f,
+            mod = i % 6,
+            r = [c, q, p, p, t, c][mod],
+            g = [t, c, c, q, p, p][mod],
+            b = [p, p, t, c, c, q][mod],
+            d = (1 - c) * gr;
         var rgb = [
-            (c * pure[0] + mg) * 255,
-            (c * pure[1] + mg) * 255,
-            (c * pure[2] + mg) * 255
+            (c * r + d) * 255,
+            (c * g + d) * 255,
+            (c * b + d) * 255
         ];
         return rgb;
     }
