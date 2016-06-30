@@ -24,16 +24,18 @@
             grayscale = 0;
         }
         if (chroma > 0) {
-            if (max === r) {
-                hue = mod((g - b) / chroma, 6);
-            } else
-            if (max === g) {
-                hue = 2 + (b - r) / chroma;
-            } else {
-                hue = 4 + (r - g) / chroma;
+            switch (max) {
+                case r:
+                    hue = (g - b) / chroma + (g < b ? 6 : 0);
+                    break;
+                case g:
+                    hue = (b - r) / chroma + 2;
+                    break;
+                case b:
+                    hue = (r - g) / chroma + 4;
+                    break;
             }
             hue /= 6;
-            hue = mod(hue, 1);
         } else {
             hue = 0;
         }
