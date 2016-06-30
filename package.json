@@ -17,7 +17,12 @@
       "default-case": 0,
       "no-inline-comments": 0,
       "operator-linebreak": 0,
-      "no-mixed-operators": 0
+      "no-mixed-operators": 0,
+      "comma-style": 0,
+      "one-var": 0,
+      "brace-style": 0,
+      "max-statements-per-line": 0,
+      "no-multi-spaces": 0
     }
   },
   "devDependencies": {
