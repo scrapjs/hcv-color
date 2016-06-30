@@ -3,25 +3,22 @@
 (function () {
     'use strict';
 
-    // Utility
-    function mod(a, n) {
-        return ((a % n) + n) % n;
-    }
-
     // RGB functions
     function rgb2hcg(rgb) {
         var r = rgb[0] / 255
           , g = rgb[1] / 255
-          , b = rgb[2] / 255;
-        var max = Math.max(r, g, b);
-        var min = Math.min(r, g, b);
-        var c = (max - min), gr = 0, h = 0;
-        if (c < 1) { gr = min / (1 - chroma); }
+          , b = rgb[2] / 255
+          , max = Math.max(r, g, b)
+          , min = Math.min(r, g, b)
+          , c = (max - min)
+          , gr = 0
+          , h = 0;
+        if (c < 1) { gr = min / (1 - c); }
         if (c > 0) {
             switch (max) {
-                case r: h = (g - b) / chroma + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / chroma + 2; break;
-                case b: h = (r - g) / chroma + 4; break;
+                case r: h = (g - b) / c + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / c + 2; break;
+                case b: h = (r - g) / c + 4; break;
             }
             h /= 6;
         }
@@ -46,9 +43,9 @@
             b = [p, p, t, c, c, q][mod],
             d = (1 - c) * gr;
         var rgb = [
-            (c * r + d) * 255,
-            (c * g + d) * 255,
-            (c * b + d) * 255
+            (r + d) * 255,
+            (g + d) * 255,
+            (b + d) * 255
         ];
         return rgb;
     }
