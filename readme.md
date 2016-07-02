@@ -2,6 +2,7 @@
 > Color model "HCG" is an alternative to "HSV" and "HSL".
 
 <img src="/images/figure1.png?raw=true" alt="HCG model" width="400">
+<img src="/images/figure2.png?raw=true" alt="HCG model" width="400">
 
 ## Description
 Unlike the others, it adjusts the color hue and shade of gray. The HCG can change the whitish-yellow to grayish-yellow in just one shift slider. Changing channels "HCG" ( "G" channel) does not affect the brightness of a color shade "HSV" and "HSL", but only changes the brightness of the mixed color of gray. Channel "C" is the coefficient of color, chromatic color depends on it.
