@@ -29,4 +29,4 @@ npm install hcg-color
 
 ## Where is located main library?
 
-Here is main library `./convert/hcg.js`
+Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js)
