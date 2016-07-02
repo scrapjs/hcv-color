@@ -20,3 +20,9 @@ The color model describes how a color can be color. For example. Either he is pu
 
 + Shadertoy visual demo of [HCG](https://www.shadertoy.com/view/ltSXRV), [HSL](https://www.shadertoy.com/view/XtjXRK), [HSV](https://www.shadertoy.com/view/4dVXDd), [Color Picker](https://www.shadertoy.com/view/ldK3Wh)
 + You can try convert any HCG values here https://tonicdev.com/npm/hcg-color
+
+## Install by npm
+
+```
+npm install hcg-color
+```
