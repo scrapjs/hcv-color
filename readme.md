@@ -1,26 +1,16 @@
 # HCG
-> HCG is a color model based on [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), designed with regard to [Munsell system](https://en.wikipedia.org/wiki/Munsell_color_system), which represents any color by mixing a pure tone with a shade of gray, which results in more intuitive way of picking colors and better mixing results.
+> Color model "HCG" is an alternative to "HSV" and "HSL".
 
-<img src="/images/munsell.jpg?raw=true" alt="Munsell model" width="300">
-
-### Info
-HCG color model represents _Hue_, _Chroma_ and _Grays_ channels. The main idea behind the color space is to be able to change the shade of gray without affecting  saturation.
-
-Unlike the HSV and HSL, HCG does only one mixing of a hue tones with a grayscale tones. In other words, that reflects the ratio between the pure tone and a neutral shade of gray, whereas HSL and HSV models describe how much the color is bright. In that, with HCG you can just pick a tone and change it’s lightness within all the available range for the constant chroma, whereas in HSL changing the lightness causes shift of chroma, as the lightness spans from pure white to pure black.
-
-##### HCG:
 <img src="/images/figure1.png?raw=true" alt="HCG model" width="400">
-<img src="/images/figure2.png?raw=true" alt="HCG model" width="400">
 
-_Fact 1_. The _Chroma_ channel is descibed in the wikipedia [article on HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV#Hue_and_chroma) color spaces, but only used as an intermediate value for calculations.
-_Fact 2_. If to draw a line from the black corner to the white corner in the color cube and build a cylinder based on the cube’s corners, that cylinder will represent the HCG model.
+## Description
+Unlike the others, it adjusts the color hue and shade of gray. The HCG can change the whitish-yellow to grayish-yellow in just one shift slider. Changing channels "HCG" ( "G" channel) does not affect the brightness of a color shade "HSV" and "HSL", but only changes the brightness of the mixed color of gray. Channel "C" is the coefficient of color, chromatic color depends on it.
 
-![Cube](/images/cube.png?raw=true "Cube")
+## Motivation
+The color model describes how a color can be color. For example. Either he is pure red, or admixed with gray shades. Either he is completely gray. Other color models can be said as far as he is light as it is dark, and so on, while the HCG can be described as pure color. Because of this difference can be derived pure colors and mixed a shade of gray.
 
-##### Comparison of values:
-![Conversions](/images/table2.png?raw=true "Conversions table")
+## Convertors
 
-### Convertors
-- Original convertor in `convert/hcg.js`.
-
-
+    - Original convertor in `convert/hcg.js`.
+    - Converter by https://github.com/scijs/color-space
+    - Converter by https://github.com/Qix-/color-convert
