@@ -15,6 +15,7 @@ The color model describes how a color can be color. For example. Either he is pu
 + Original convertor in [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js).
 + Converter https://github.com/scijs/color-space
 + Converter https://github.com/Qix-/color-convert
++ Plugin for D3 https://github.com/d3/d3-hcg
 
 ### Demonstration and calculators
 
