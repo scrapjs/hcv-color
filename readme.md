@@ -13,8 +13,8 @@ The color model describes how a color can be color. For example. Either he is pu
 ## Convertors
 
 + Original convertor in `convert/hcg.js`.
-+ Converter by https://github.com/scijs/color-space
-+ Converter by https://github.com/Qix-/color-convert
++ Converter https://github.com/scijs/color-space
++ Converter https://github.com/Qix-/color-convert
 
 ## Demonstration and calculators
 
