@@ -15,3 +15,8 @@ The color model describes how a color can be color. For example. Either he is pu
     - Original convertor in `convert/hcg.js`.
     - Converter by https://github.com/scijs/color-space
     - Converter by https://github.com/Qix-/color-convert
+
+## Demonstration and calculators
+
+    - Shadertoy visual demo of [HCG](https://www.shadertoy.com/view/ltSXRV), [HSL](https://www.shadertoy.com/view/XtjXRK), [HSV](https://www.shadertoy.com/view/4dVXDd), [Color Picker](https://www.shadertoy.com/view/ldK3Wh)
+    - 
