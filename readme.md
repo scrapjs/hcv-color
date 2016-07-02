@@ -28,6 +28,8 @@ The color model describes how a color can be color. For example. Either he is pu
 npm install hcg-color
 ```
 
+Here is npm module: [hcg-color](https://www.npmjs.com/package/hcg-color)
+
 ### Where is located converter?
 
 Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js)
