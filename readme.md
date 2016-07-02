@@ -1,5 +1,5 @@
 # HCG (color model)
-> Color model HCG is an alternative to HSV and HSL.
+> Color model HCG is an alternative to HSV and HSL, derived by Munsell color system.
 
 <img src="/images/figure1.png?raw=true" alt="HCG model" width="300">
 <img src="/images/figure2.png?raw=true" alt="HCG model" width="300">
