@@ -1,3 +1,4 @@
+// https://github.com/acterhd/hcg-color
 // Made by acterhd, 2015-2016 year
 
 (function () {
