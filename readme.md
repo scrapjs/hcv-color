@@ -1,4 +1,4 @@
-# HCG
+# HCG (color model)
 > Color model "HCG" is an alternative to "HSV" and "HSL".
 
 <img src="/images/figure1.png?raw=true" alt="HCG model" width="300">
