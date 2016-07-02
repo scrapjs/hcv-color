@@ -10,6 +10,10 @@ Unlike the others, it adjusts the color hue and shade of gray. The HCG can chang
 ### Motivation
 The color model describes how a color can be color. For example. Either he is pure red, or admixed with gray shades. Either he is completely gray. Other color models can be said as far as he is light as it is dark, and so on, while the HCG can be described as pure color. Because of this difference can be derived pure colors and mixed a shade of gray.
 
+### Websites
+
++ [Official webpage](http://acterhd.github.io/hcg-color/)
+
 ### Convertors
 
 + Original convertor in [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js).
@@ -21,7 +25,7 @@ The color model describes how a color can be color. For example. Either he is pu
 
 + Shadertoy visual demo of [HCG](https://www.shadertoy.com/view/ltSXRV), [HSL](https://www.shadertoy.com/view/XtjXRK), [HSV](https://www.shadertoy.com/view/4dVXDd), [Color Picker](https://www.shadertoy.com/view/ldK3Wh)
 + You can try HCG converter https://tonicdev.com/npm/hcg-color
-+ You can try color picker in [official website](http://acterhd.github.io/hcg-color/)
++ You can try color picker in [official webpage](http://acterhd.github.io/hcg-color/)
 
 ### Install by npm
 
