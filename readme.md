@@ -26,3 +26,7 @@ The color model describes how a color can be color. For example. Either he is pu
 ```
 npm install hcg-color
 ```
+
+## Where is located main library?
+
+Here is main library `./convert/hcg.js`
