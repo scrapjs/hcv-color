@@ -99,7 +99,7 @@
                 let canvas = gl.canvas;
 
                 let vshader = `
-                precision highp float;
+                precision mediump float;
                 attribute vec2 pos;
                 varying vec2 vpos;
                 void main(){
@@ -109,7 +109,7 @@
                 `
 
                 let fshader = `
-                precision highp float;
+                precision mediump float;
                 varying vec2 vpos;
                 struct circle {
                     vec2 center;
