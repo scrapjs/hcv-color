@@ -2,84 +2,27 @@
     "use strict";
 
     var css = ``;
-
     var style = document.createElement("style");
     style.type = "text/css";
     style.innerHTML = css;
     document.querySelectorAll("head")[0].appendChild(style);
 
-    const H = 0;
-    const C = 1;
-    const G = 2;
-
-    Math.clamp = function (num, min, max) {
-        return Math.max(min, Math.min(num, max));
-    }
-
-    function _strc(a) {
-        return `rgb(${Math.round(a[0]) }, ${Math.round(a[1]) }, ${Math.round(a[2]) })`;
-    }
-
-    function _strh(a) {
-        return `hcg(${Math.round(a[0] * 360) }, ${Math.round(a[1] * 100) }%, ${Math.round(a[2] * 100) }%)`;
-    }
-
-    function _color(hcg, func) {
-        return (func || hcg2rgb)([hcg[0] * 360, hcg[1] * 100, hcg[2] * 100]);
-    }
-
-    function _pleft(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingLeft);
-        var bd = parseInt(c.borderLeftWidth);
-        return pd + bd;
-    }
-
-    function _ptop(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingTop);
-        var bd = parseInt(c.borderTopWidth);
-        return pd + bd;
-    }
-
-    function _pwidth(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingLeft) + parseInt(c.paddingRight);
-        return el.clientWidth - pd;
-    }
-
-    function _pheight(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingTop) + parseInt(c.paddingBottom);
-        return el.clientHeight - pd;
-    }
-
-    function mod(a, n) {
-        return ((a % n) + n) % n;
-    }
-
-    function _set(a, b, o) {
-        o = o || 0;
-        for (let i = 0; i < b.length; i++) {
-            a[i + o] = b[i];
-        }
-    }
-
     class Wheel {
         constructor(_canvas, source) {
             this.func = hcg2rgb;
             this.glslFunc = `
-vec3 hcg2rgb(in vec3 c){
-    vec3 rgb = clamp( abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0, 0.0, 1.0 );
-    return mix(vec3(c.z), rgb, c.y);
-}
+            vec3 hcg2rgb(in vec3 c){
+                vec3 rgb = clamp( abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0, 0.0, 1.0 );
+                return mix(vec3(c.z), rgb, c.y);
+            }
             `;
+
             this.channel = [H, C, G];
             this.hcg = source || [0.1, 0.5, 1];
-            
+
             this.width = 200;
             this.height = 200;
-            
+
             {
                 let opts = { "preserveDrawingBuffer": true };
                 let canvas = document.createElement("canvas");
@@ -93,11 +36,10 @@ vec3 hcg2rgb(in vec3 c){
             this.center = new Vec2(0.5, 0.5);
             this.radius = 0.4;
             this.press = false;
-            
+
             { //Init bindings
                 let canvas = this.rtx.canvas;
                 let self = this;
-
                 var touch;
 
                 canvas.addEventListener("touchstart", function (ev) {
@@ -132,9 +74,6 @@ vec3 hcg2rgb(in vec3 c){
                     }
                 }.bind(canvas), true);
 
-
-
-
                 canvas.addEventListener("selectstart", function (ev) {
                     ev.preventDefault();
                 });
@@ -161,56 +100,57 @@ vec3 hcg2rgb(in vec3 c){
                 let canvas = gl.canvas;
 
                 let vshader = `
-precision highp float;
-attribute vec2 pos;
-varying vec2 vpos;
-void main(){
-    gl_Position = vec4(pos * 2.0 - 1.0, 0.0, 1.0);
-    vpos = pos;
-}
-`
+                precision highp float;
+                attribute vec2 pos;
+                varying vec2 vpos;
+                void main(){
+                    gl_Position = vec4(pos * 2.0 - 1.0, 0.0, 1.0);
+                    vpos = pos;
+                }
+                `
 
                 let fshader = `
-precision highp float;
-varying vec2 vpos;
-struct circle {
-    vec2 center;
-    float radius;
-};
-uniform float gray;
-uniform circle hc;
-uniform vec2 resolution;
-const float PI = 3.14159265359;
+                precision highp float;
+                varying vec2 vpos;
+                struct circle {
+                    vec2 center;
+                    float radius;
+                };
+                uniform float gray;
+                uniform circle hc;
+                uniform vec2 resolution;
+                const float PI = 3.14159265359;
 
-${this.glslFunc}
+                ${this.glslFunc}
 
-const float wx = 2.0;
-const float wy = 2.0;
-void main(){
-    vec4 color = vec4(0.0);
-    for(float x=0.0;x<wx;x+=1.0){
-        for(float y=0.0;y<wy;y+=1.0){
-            float aspect = resolution.x / resolution.y;
-            float ce = 1.0 - 1.0 / aspect;
-            vec2 part = vec2(x, y) / vec2(wx, wy) / resolution.xy;
-            vec2 partCoord = gl_FragCoord.xy + part * resolution.xy;
-            vec2 xy = (partCoord / resolution.xy) * vec2(aspect, 1.0) - vec2(ce, 0.0) * aspect * 0.5;
-            vec2 f = (xy - hc.center) / hc.radius;
-            float l = length(f);
-            if(l < 1.0) {
-                float h = fract(atan(f.x, f.y) / (PI * 2.0));
-                float c = l;
-                float g = gray;
-                color += vec4(hcg2rgb(vec3(h, c, g)), 1.0);
-            } else {
-                color += vec4(0.0);
-            }
-        }
-    }
-    color /= wx * wy;
-    gl_FragColor = color;
-}
-`
+                const float wx = 2.0;
+                const float wy = 2.0;
+                void main(){
+                    vec4 color = vec4(0.0);
+                    for(float x=0.0;x<wx;x+=1.0){
+                        for(float y=0.0;y<wy;y+=1.0){
+                            float aspect = resolution.x / resolution.y;
+                            float ce = 1.0 - 1.0 / aspect;
+                            vec2 part = vec2(x, y) / vec2(wx, wy) / resolution.xy;
+                            vec2 partCoord = gl_FragCoord.xy + part * resolution.xy;
+                            vec2 xy = (partCoord / resolution.xy) * vec2(aspect, 1.0) - vec2(ce, 0.0) * aspect * 0.5;
+                            vec2 f = (xy - hc.center) / hc.radius;
+                            float l = length(f);
+                            if(l < 1.0) {
+                                float h = fract(atan(f.x, f.y) / (PI * 2.0));
+                                float c = l;
+                                float g = gray;
+                                color += vec4(hcg2rgb(vec3(h, c, g)), 1.0);
+                            } else {
+                                color += vec4(0.0);
+                            }
+                        }
+                    }
+                    color /= wx * wy;
+                    gl_FragColor = color;
+                }
+                `
+
                 gl.clearColor(0.0, 0.0, 0.0, 0.0);
                 gl.disable(gl.BLEND);
                 gl.disable(gl.DEPTH_TEST);
@@ -251,7 +191,6 @@ void main(){
             }
         }
 
-
         dopress(point, ev) {
             let coord = new Vec2(
                 (point.x - _pleft(this.rtx.canvas)) / (_pwidth(this.rtx.canvas) / this.width),
@@ -278,9 +217,6 @@ void main(){
             if (this.onchange) { this.onchange(); }
             //this.draw();
         }
-
-
-
 
         draw() {
 
@@ -356,8 +292,8 @@ void main(){
             let xy = coord.div(res).mul(new Vec2(aspect, 1.0)).sub(new Vec2(1.0 - ce, 0.0).mul(aspect * 0.5));
             let n = (xy.sub(this.center)).div(this.radius);
             let rad = mod(-n.atan() - Math.PI, Math.PI * 2.0);
-            let len = n.length(); 
-            
+            let len = n.length();
+
             var hcg = Array.from(this.hcg);
             hcg[this.channel[0]] = rad / (Math.PI * 2.0);
             hcg[this.channel[1]] = len;

@@ -51,72 +51,11 @@
         }
     `;
 
-var style = document.createElement("style");
-style.type = "text/css";
-style.innerHTML = css;
-document.querySelectorAll("head")[0].appendChild(style);
-
-    const H = 0;
-    const C = 1;
-    const G = 2;
-
-    Math.clamp = function (num, min, max) {
-        return Math.max(min, Math.min(num, max));
-    }
-
-    function _strc(a) {
-        return `rgb(${Math.round(a[0]) }, ${Math.round(a[1]) }, ${Math.round(a[2]) })`;
-    }
-
-    function _strh(a) {
-        return `hcg(${Math.round(a[0] * 360) }, ${Math.round(a[1] * 100) }%, ${Math.round(a[2]*100) }%)`;
-    }
-
-    function _color(hcg, func) {
-        return (func || hcg2rgb)([hcg[0] * 360, hcg[1] * 100, hcg[2] * 100]);
-    }
-
-    function _toHcg(rgb, func) {
-        return (func || rgb2hcg)([rgb[0], rgb[1], rgb[2]]);
-    }
-
-    function _pleft(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingLeft);
-        var bd = parseInt(c.borderLeftWidth);
-        return pd + bd;
-    }
-
-    function _ptop(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingTop);
-        var bd = parseInt(c.borderTopWidth);
-        return pd + bd;
-    }
-
-    function _pwidth(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingLeft) + parseInt(c.paddingRight);
-        return el.clientWidth - pd;
-    }
-
-    function _pheight(el) {
-        var c = getComputedStyle(el, "");
-        var pd = parseInt(c.paddingTop) + parseInt(c.paddingBottom);
-        return el.clientHeight - pd;
-    }
-
-    function mod(a, n) {
-        return ((a % n) + n) % n;
-    }
-
-    function _set(a, b, o){
-        o = o || 0;
-        for(let i=0;i<b.length;i++){
-            a[i + o] = b[i];
-        }
-    }
-
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = css;
+    document.querySelectorAll("head")[0].appendChild(style);
+    
     class Picker {
         constructor(){
             this.hcg = [0, 1, 1];
@@ -192,10 +131,10 @@ document.querySelectorAll("head")[0].appendChild(style);
                 this.c2 = new GraySlider(container.querySelector(".color-channel2"), this.hcg);
                 this.cg = new Wheel(container.querySelector(".color-wheel"), this.hcg);
 
+                //input numbers
                 this.th = container.querySelector(".color-hcg-H");
                 this.tc = container.querySelector(".color-hcg-C");
                 this.tg = container.querySelector(".color-hcg-G");
-
                 this.t_r = container.querySelector(".color-rgb-R");
                 this.t_g = container.querySelector(".color-rgb-G");
                 this.t_b = container.querySelector(".color-rgb-B");
@@ -203,16 +142,10 @@ document.querySelectorAll("head")[0].appendChild(style);
                 this.c2.onchange =
                 this.c1.onchange =
                 this.c0.onchange =
-                this.cg.onchange = function(){
-                    that.synchronize();
-                }
+                this.cg.onchange = function(){ that.synchronize(); }
 
-                this.th.oninput = this.tc.oninput = this.tg.oninput = function(){
-                    that.updateHCG(this);
-                }
-                this.t_r.oninput = this.t_g.oninput = this.t_b.oninput = function(){
-                    that.updateRGB(this);
-                }
+                this.th.oninput = this.tc.oninput = this.tg.oninput = function(){ that.updateHCG(this); }
+                this.t_r.oninput = this.t_g.oninput = this.t_b.oninput = function(){ that.updateRGB(this); }
 
                 this.inputText = container.querySelector(".color-result-input");
                 this.outputText = container.querySelector(".color-result-output");
@@ -243,15 +176,16 @@ document.querySelectorAll("head")[0].appendChild(style);
             this.inputText.innerHTML = _strh(this.hcg);
             this.outputText.innerHTML = _strc(rgb);
 
+            //Render these elements
             this.c0.synchronize();
             this.c1.synchronize();
             this.c2.synchronize();
             this.cg.synchronize();
 
+            //Update inputs
             if(el != this.th) this.th.value = this.hcg[0] * 360;
             if(el != this.tc) this.tc.value = this.hcg[1] * 100;
             if(el != this.tg) this.tg.value = this.hcg[2] * 100;
-
             if(el != this.t_r) this.t_r.value = rgb[0];
             if(el != this.t_g) this.t_g.value = rgb[1];
             if(el != this.t_b) this.t_b.value = rgb[2];
