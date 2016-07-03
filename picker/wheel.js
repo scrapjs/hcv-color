@@ -31,7 +31,6 @@
             this.ctx = document.createElement("canvas").getContext("2d");
             this.rtx = (_canvas || document.createElement("canvas")).getContext("2d");
             this.rtx.canvas.style.width = this.width + "px";
-            this.pad = 2;
 
             this.center = new Vec2(0.5, 0.5);
             this.radius = 0.4;
@@ -158,24 +157,18 @@
                 let vert = gl.createShader(gl.VERTEX_SHADER);
                 gl.shaderSource(vert, vshader);
                 gl.compileShader(vert);
-                if (!gl.getShaderParameter(vert, gl.COMPILE_STATUS)) {
-                    console.error(gl.getShaderInfoLog(vert));
-                }
+                if (!gl.getShaderParameter(vert, gl.COMPILE_STATUS)) {console.error(gl.getShaderInfoLog(vert));}
 
                 let frag = gl.createShader(gl.FRAGMENT_SHADER);
                 gl.shaderSource(frag, fshader);
                 gl.compileShader(frag);
-                if (!gl.getShaderParameter(frag, gl.COMPILE_STATUS)) {
-                    console.error(gl.getShaderInfoLog(frag));
-                }
+                if (!gl.getShaderParameter(frag, gl.COMPILE_STATUS)) {console.error(gl.getShaderInfoLog(frag));}
 
                 this.shader = gl.createProgram();
                 gl.attachShader(this.shader, vert);
                 gl.attachShader(this.shader, frag);
                 gl.linkProgram(this.shader);
-                if (!gl.getProgramParameter(this.shader, gl.LINK_STATUS)) {
-                    console.error(gl.getProgramInfoLog(this.shader));
-                }
+                if (!gl.getProgramParameter(this.shader, gl.LINK_STATUS)) {console.error(gl.getProgramInfoLog(this.shader));}
 
                 this.posattr = gl.getAttribLocation(this.shader, "pos");
                 gl.enableVertexAttribArray(this.posattr);
@@ -195,13 +188,11 @@
             let coord = new Vec2(
                 (point.x - _pleft(this.rtx.canvas)) / (_pwidth(this.rtx.canvas) / this.width),
                 (point.y - _ptop(this.rtx.canvas)) / (_pheight(this.rtx.canvas) / this.height)
-                );
+            );
             var hcg = this.hcgFromCoord(coord);
             if (hcg[this.channel[1]] <= 1.0 && hcg[this.channel[1]] >= 0.0) {
                 this.press = true;
-                if (ev) {
-                    ev.preventDefault();
-                }
+                if (ev) ev.preventDefault();
             }
         }
 
@@ -209,7 +200,7 @@
             let coord = new Vec2(
                 (point.x - _pleft(this.rtx.canvas)) / (_pwidth(this.rtx.canvas) / this.width),
                 (point.y - _ptop(this.rtx.canvas)) / (_pheight(this.rtx.canvas) / this.height)
-                );
+            );
             _set(this.hcg, this.hcgFromCoord(coord));
             for (let i = 0; i < 3; i++) {
                 this.hcg[this.channel[i]] = Math.clamp(this.hcg[this.channel[i]], 0.0, 1.0);
