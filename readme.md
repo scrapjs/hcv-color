@@ -61,7 +61,7 @@ func rgb2hue (rgb, c, M)
   return 0
 
 
-// premultiplied pure color
+//premultiplied pure color
 func hue2rgb (hue6, c)
   x = c * (1 - Math.abs(hue6 % 2 - 1))
   if (0 <= hue6) return [c, x, 0]
