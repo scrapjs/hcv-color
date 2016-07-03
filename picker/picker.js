@@ -8,7 +8,7 @@
             background-color: rgb(200, 200, 200);
             border: solid 1px rgb(162, 162, 162);
             border-radius: 2px;
-            width: 510px;
+            width: 520px;
             padding: 5px;
         }
 
@@ -134,8 +134,11 @@ document.querySelectorAll("head")[0].appendChild(style);
                         <div>
                           <br/>
                           HCG:
-                          </br>
+                          </br></br>
                           <div class="color-result-container">
+                              <div class="color-cell">
+                                H:
+                              </div>
                               <div class="color-cell">
                                  <input type="range" value="0" min="0" max="1" step="0.001" class="color-channel0"/>
                               </div>
@@ -145,6 +148,9 @@ document.querySelectorAll("head")[0].appendChild(style);
                           </div><br/>
                           <div class="color-result-container">
                               <div class="color-cell">
+                                C:
+                              </div>
+                              <div class="color-cell">
                                  <input type="range" value="1" min="0" max="1" step="0.001" class="color-channel1"/>
                               </div>
                               <div class="color-cell">
@@ -153,12 +159,15 @@ document.querySelectorAll("head")[0].appendChild(style);
                           </div><br/>
                           <div class="color-result-container">
                               <div class="color-cell">
+                                G:
+                              </div>
+                              <div class="color-cell">
                                  <input type="range" value="0" min="0" max="1" step="0.001" class="color-channel2"/>
                               </div>
                               <div class="color-cell">
                                  <input type="number" value="0" class="color-input-channel color-hcg-G" min="0" max="100" step="0.1">
                               </div>
-                          </div><br/>RGB:<br/>
+                          </div><br/></br>RGB:
                           <input type="number" value="255" class="color-input-channel color-rgb-R" min="0" max="255" step="0.1">
                           <input type="number" value="0" class="color-input-channel color-rgb-G" min="0" max="255" step="0.1">
                           <input type="number" value="0" class="color-input-channel color-rgb-B" min="0" max="255" step="0.1">
