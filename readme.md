@@ -41,6 +41,8 @@ Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/b
 
 ### Can you simplify?
 
+HSV and HSL will later, but now you can found in [JS file](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js). 
+
 ```
 //Hue conversions
 /////////////////
