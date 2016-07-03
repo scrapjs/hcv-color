@@ -18,8 +18,10 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     background-color: rgba(255, 255, 255, 0.5);
-    width: 6px;
-    height: 20px;
+    width: 8px;
+    height: 30px;
+    transform: translateY(-5px);
+    display: inline-block;
     border: solid 1px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
 }
@@ -35,12 +37,14 @@
     height: 20px;
     padding: 0;
     background-repeat: no-repeat;
-    background-size: calc(100% - 6px) 100%;
+    background-size: calc(100% - 8px) 100%;
     background-position: center center;
-    background-color: transparent;
+    background-color: rgb(128, 128, 128);
     background-origin: content-box;
     background-clip: content-box;
     outline: none;
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    box-sizing: content-box;
 }
 
 .color-input::-webkit-slider-thumb ${thumb}

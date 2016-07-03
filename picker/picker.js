@@ -8,10 +8,12 @@
             background-color: rgb(192, 192, 192);
             border: solid 1px rgb(128, 128, 128);
             border-radius: 2px;
-            width: 480px;
+            width: 500px;
         }
 
         .color-cell {
+            padding-left: 5px;
+            box-sizing: border-box;
         }
 
         .color-channel0, .color-channel1, .color-channel2 {
@@ -127,26 +129,26 @@ document.querySelectorAll("head")[0].appendChild(style);
                           </br>
                           <div class="color-result-container">
                               <div class="color-cell">
-                                <input type="range" value="0" min="0" max="1" step="0.001" class="color-channel0"/>
+                                 <input type="range" value="0" min="0" max="1" step="0.001" class="color-channel0"/>
                               </div>
                               <div class="color-cell">
-                                <input type="number" value="0" class="color-input-channel color-hcg-H" min="0" max="360" step="0.1">
-                              </div>
-                          </div><br/>
-                          <div class="color-result-container">
-                              <div class="color-cell">
-                                <input type="range" value="1" min="0" max="1" step="0.001" class="color-channel1"/>
-                              </div>
-                              <div class="color-cell">
-                                <input type="number" value="1" class="color-input-channel color-hcg-C" min="0" max="100" step="0.1">
+                                 <input type="number" value="0" class="color-input-channel color-hcg-H" min="0" max="360" step="0.1">
                               </div>
                           </div><br/>
                           <div class="color-result-container">
                               <div class="color-cell">
-                                <input type="range" value="0" min="0" max="1" step="0.001" class="color-channel2"/>
+                                 <input type="range" value="1" min="0" max="1" step="0.001" class="color-channel1"/>
                               </div>
                               <div class="color-cell">
-                                <input type="number" value="0" class="color-input-channel color-hcg-G" min="0" max="100" step="0.1">
+                                 <input type="number" value="1" class="color-input-channel color-hcg-C" min="0" max="100" step="0.1">
+                              </div>
+                          </div><br/>
+                          <div class="color-result-container">
+                              <div class="color-cell">
+                                 <input type="range" value="0" min="0" max="1" step="0.001" class="color-channel2"/>
+                              </div>
+                              <div class="color-cell">
+                                 <input type="number" value="0" class="color-input-channel color-hcg-G" min="0" max="100" step="0.1">
                               </div>
                           </div><br/>RGB:<br/>
                           <input type="number" value="255" class="color-input-channel color-rgb-R" min="0" max="255" step="0.1">
