@@ -61,7 +61,7 @@ func rgb2hue (rgb, c, M)
   return 0
 
 
-
+// premultiplied pure color
 func hue2rgb (hue6, c)
   x = c * (1 - Math.abs(hue6 % 2 - 1))
   if (0 <= hue6) return [c, x, 0]
@@ -85,9 +85,10 @@ func rgb2hcg (rgb)
 
   m = min(rgb[0], rgb[1], rgb[2])
   M = max(rgb[0], rgb[1], rgb[2])
-  c = M - m
-  h = rgb2hue(rgb, c, M)
-  g = m / (1 - c)
+  c = M - m //chroma are delta of rgb
+  h = (c > 0) ? rgb2hue(rgb, c, M) : 0
+  g = (c < 1) ? m / (1 - c) : 0 //here is unblend grayscale
+  //if chroma is 1 then undefined grayscale, if chroma is 0 then hue is undefined
 
   return [h, c, g]
 
@@ -96,6 +97,10 @@ func rgb2hcg (rgb)
 //first channel should be in [0..6], another two in [0..1]
 func hcg2rgb (hcg)
   var rgbp = hue2rgb(hcg[0], hcg[1]) //chroma just multiplies to pure rgb color
-  var m = hcg[2] * (1 - hcg[1])
+  var m = hcg[2] * (1 - hcg[1]) //additional blending with grayscale
   return [rgbp[0] + m, rgbp[1] + m, rgbp[2] + m]
+
+  //in general should be
+  //pure * c + g * (1 - c)
+  //i.e. blending
 ```
