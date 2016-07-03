@@ -38,3 +38,48 @@ Here is npm module: [hcg-color](https://www.npmjs.com/package/hcg-color)
 ### Where is located converter?
 
 Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js)
+
+### Can you simplify?
+
+```
+func rgb2hue (rgb, c, M)
+  if c == 0
+    return 0
+
+  if M == rgb[0]
+    return ((rgb[1] - rgb[2]) / c) % 6
+  if M == rgb[1]
+    return (rgb[2] - rgb[0]) / c + 2
+  if M == rgb[2]
+    return (rgb[0] - rgb[1]) / c + 4
+
+  return 0
+
+func hue2rgb (hue6, c)
+  x = c * (1 - Math.abs(hue6 % 2 - 1))
+  if (0 <= hue6) return [c, x, 0]
+  if (1 <= hue6) return [x, c, 0]
+  if (2 <= hue6) return [0, c, x]
+  if (3 <= hue6) return [0, x, c]
+  if (4 <= hue6) return [x, 0, c]
+  if (5 <= hue6) return [c, 0, x]
+
+//rgb should be in [0..1]
+func rgb2hcg (rgb)
+  var h, c, g
+  var M, m
+
+  m = min(rgb[0], rgb[1], rgb[2])
+  M = max(rgb[0], rgb[1], rgb[2])
+  c = M - m
+  h = rgb2hue(rgb, c, M)
+  g = m / (1 - c)
+
+  return [h, c, g]
+
+//first channel should be in [0..6], another two in [0..1]
+func hcg2rgb (hcg)
+  var rgbp = hue2rgb(hcg[0], hcg[1])
+  var m = hcg[2] * (1 - hcg[1])
+  return [rgbp[0] + m, rgbp[1] + m, rgbp[2] + m]
+```
