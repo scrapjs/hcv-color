@@ -42,6 +42,9 @@ Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/b
 ### Can you simplify?
 
 ```
+//Hue conversions
+/////////////////
+
 func rgb2hue (rgb, c, M)
   if c == 0
     return 0
@@ -55,6 +58,8 @@ func rgb2hue (rgb, c, M)
 
   return 0
 
+
+
 func hue2rgb (hue6, c)
   x = c * (1 - Math.abs(hue6 % 2 - 1))
   if (0 <= hue6) return [c, x, 0]
@@ -63,6 +68,12 @@ func hue2rgb (hue6, c)
   if (3 <= hue6) return [0, x, c]
   if (4 <= hue6) return [x, 0, c]
   if (5 <= hue6) return [c, 0, x]
+
+
+
+//RGB and HCG conversions
+/////////////////////////
+
 
 //rgb should be in [0..1]
 func rgb2hcg (rgb)
@@ -76,6 +87,8 @@ func rgb2hcg (rgb)
   g = m / (1 - c)
 
   return [h, c, g]
+
+
 
 //first channel should be in [0..6], another two in [0..1]
 func hcg2rgb (hcg)
