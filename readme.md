@@ -68,6 +68,7 @@ func hue2rgb (hue6, c)
   if (3 <= hue6) return [0, x, c]
   if (4 <= hue6) return [x, 0, c]
   if (5 <= hue6) return [c, 0, x]
+  return [0, 0, 0]
 
 
 
