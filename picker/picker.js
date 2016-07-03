@@ -10,6 +10,8 @@
             border-radius: 2px;
             width: 520px;
             padding: 5px;
+            font-family: Arial;
+            font-size: 12px;
         }
 
         .color-cell {
@@ -55,7 +57,7 @@
     style.type = "text/css";
     style.innerHTML = css;
     document.querySelectorAll("head")[0].appendChild(style);
-    
+
     class Picker {
         constructor(){
             this.hcg = [0, 1, 1];
