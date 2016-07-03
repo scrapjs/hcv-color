@@ -77,7 +77,6 @@ func hue2rgb (hue6, c)
 //RGB and HCG conversions
 /////////////////////////
 
-
 //rgb should be in [0..1]
 func rgb2hcg (rgb)
   var h, c, g
