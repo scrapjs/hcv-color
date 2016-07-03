@@ -41,7 +41,7 @@ Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/b
 
 ### Can you simplify?
 
-HSV and HSL will later, but now you can found in [JS file](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js). 
+HSV and HSL will later, but now you can found in [JS file](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js).
 
 ```
 //Hue conversions
@@ -95,7 +95,7 @@ func rgb2hcg (rgb)
 
 //first channel should be in [0..6], another two in [0..1]
 func hcg2rgb (hcg)
-  var rgbp = hue2rgb(hcg[0], hcg[1])
+  var rgbp = hue2rgb(hcg[0], hcg[1]) //chroma just multiplies to pure rgb color
   var m = hcg[2] * (1 - hcg[1])
   return [rgbp[0] + m, rgbp[1] + m, rgbp[2] + m]
 ```
