@@ -47,6 +47,7 @@
           margin-top: 40px;
           border: solid 1px rgb(162, 162, 162);
           background-color: rgb(210, 210, 210);
+          box-sizing: content-box;
         }
     `;
 
