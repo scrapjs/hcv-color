@@ -17,12 +17,12 @@
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
     width: 8px;
     height: 30px;
     transform: translateY(-5px);
     display: inline-block;
-    border: solid 1px rgba(0, 0, 0, 0.5);
+    border: solid 1px rgba(128, 128, 128, 0.6);
     box-sizing: border-box;
 }
     `
@@ -43,7 +43,7 @@
     background-origin: content-box;
     background-clip: content-box;
     outline: none;
-    border: solid 1px rgba(0, 0, 0, 0.5);
+    border: solid 1px rgb(162, 162, 162);
     box-sizing: content-box;
 }
 

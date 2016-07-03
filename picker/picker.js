@@ -5,10 +5,11 @@
         .color-container {
             display: flex;
             flex-direction: row;
-            background-color: rgb(192, 192, 192);
-            border: solid 1px rgb(128, 128, 128);
+            background-color: rgb(200, 200, 200);
+            border: solid 1px rgb(162, 162, 162);
             border-radius: 2px;
-            width: 500px;
+            width: 510px;
+            padding: 5px;
         }
 
         .color-cell {
@@ -28,7 +29,7 @@
         .color-result-fill {
             width: 40px;
             height: 40px;
-            border: solid 1px rgb(128, 128, 128);
+            border: solid 1px rgb(162, 162, 162);
         }
 
         .color-result-input, .color-result-output {
@@ -40,6 +41,12 @@
           width: 60px;
           height: 20px;
           display: inline-block;
+        }
+
+        .color-wheel {
+          margin-top: 40px;
+          border: solid 1px rgb(162, 162, 162);
+          background-color: rgb(210, 210, 210);
         }
     `;
 
