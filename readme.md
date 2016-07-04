@@ -21,6 +21,7 @@ The color model describes how a color can be color. For example. Either he is pu
 + Converter https://github.com/Qix-/color-convert
 + Plugin for D3 https://github.com/d3/d3-hcg
 + Converter https://github.com/satya164/pigment
++ Plug-in for Less https://github.com/acterhd/less-hcg
 
 ### Demonstration and calculators
 
