@@ -1,2 +1,2 @@
-exports.less = require("less/index");
-exports.convert = require("convert/index");
+exports.less = require("less");
+exports.convert = require("convert");
