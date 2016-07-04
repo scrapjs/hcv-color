@@ -1,11 +1,7 @@
-function clamp(val) {
-    return Math.min(1, Math.max(0, val));
-}
 module.exports = function(less) {
-	function hsla(color) {
-		var hsla = less.functions.functionRegistry.get("hsla");
-		return hsla(color.h, color.s, color.l, color.a);
-	}
+  function clamp(val) {
+      return Math.min(1, Math.max(0, val));
+  }
 	function number(n) {
 		if (n.type === "Dimension") {
 			return parseFloat(n.unit.is('%') ? n.value / 100 : n.value);
