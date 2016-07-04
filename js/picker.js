@@ -58,7 +58,7 @@ function _classCallCheck(instance, Constructor) {
             document.querySelectorAll("head")[0].appendChild(style);
 
             var Slider = function () {
-                function Slider(input, source) {
+                function Slider(input, source, func) {
                     var _this = this;
 
                     _classCallCheck(this, Slider);
@@ -70,6 +70,7 @@ function _classCallCheck(instance, Constructor) {
                     this.min = 0;
                     this.max = 1;
                     this.init();
+                    this.func = hcg2rgb || func;
 
                     {
                         (function () {
@@ -236,16 +237,16 @@ function _classCallCheck(instance, Constructor) {
             var G = 2;
 
             var Wheel = function () {
-                function Wheel(_canvas, source) {
+                function Wheel(_canvas, source, func) {
                     var _this = this;
 
                     _classCallCheck(this, Wheel);
 
-                    this.func = hcg2rgb;
                     this.glslFunc = "\n                vec3 hcg2rgb(in vec3 c){\n                    vec3 rgb = clamp( abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0, 0.0, 1.0 );\n                    return mix(vec3(c.z), rgb, c.y);\n                }\n                ";
 
                     this.channel = [H, C, G];
                     this.hcg = source || [0.1, 0.5, 1];
+                    this.func = hcg2rgb || func;
 
                     this.width = 200;
                     this.height = 200;
