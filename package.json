@@ -1,7 +1,7 @@
 {
   "name": "hcg-color",
   "description": "Adds HCG color model support for anything",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Alexey S <acterhd@gmail.com>",
   "license": "MIT",
   "repository": "https://github.com/acterhd/hcg-color.git",
