@@ -42,11 +42,11 @@
             r = [c, q, p, p, t, c][mod],
             g = [t, c, c, q, p, p][mod],
             b = [p, p, t, c, c, q][mod],
-            d = (1 - c) * gr;
+            m = (1 - c) * gr;
         return [
-            (r + d) * 255,
-            (g + d) * 255,
-            (b + d) * 255
+            (r + m) * 255,
+            (g + m) * 255,
+            (b + m) * 255
         ];
     }
 
