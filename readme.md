@@ -39,7 +39,3 @@ Here is npm module: [hcg-color](https://www.npmjs.com/package/hcg-color)
 ### Where is located converter?
 
 Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js)
-
-### Can you simplify?
-
-No, this hardly for word learn at now. Now read this file [JS file](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js). If researcher write papper about HCG, then may be...
