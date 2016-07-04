@@ -30,23 +30,21 @@
         var h  = hcg[0] / 360 * 6,
             c  = hcg[1] / 100,
             gr = hcg[2] / 100;
-        if (c === 0.0) {
+        if (c <= 0) {
             return [gr * 255, gr * 255, gr * 255];
         }
         var i = Math.floor(h),
             f = h - i,
-            p = 0,
-            q = c * (1 - f),
-            t = c * f,
+            q = c * (1 - f), t = c * f,
             mod = i % 6,
-            r = [c, q, p, p, t, c][mod],
-            g = [t, c, c, q, p, p][mod],
-            b = [p, p, t, c, c, q][mod],
-            d = (1 - c) * gr;
+            r = [c, q, 0, 0, t, c][mod],
+            g = [t, c, c, q, 0, 0][mod],
+            b = [0, 0, t, c, c, q][mod],
+            m = (1 - c) * gr;
         return [
-            (r + d) * 255,
-            (g + d) * 255,
-            (b + d) * 255
+            (r + m) * 255,
+            (g + m) * 255,
+            (b + m) * 255
         ];
     }
 
@@ -54,8 +52,8 @@
     function hcg2hsv(hcg) {
         var c = hcg[1] / 100,
             g = hcg[2] / 100;
-        var v = c + g * (1.0 - c), res;
-        if (v > 0.0) {
+        var v = c + g * (1 - c), res;
+        if (v > 0) {
             var f = c / v;
             res = [hcg[0], f * 100, v * 100];
         } else {
@@ -68,7 +66,7 @@
         var s = hsv[1] / 100,
             v = hsv[2] / 100;
         var c = s * v, res;
-        if (c < 1.0) {
+        if (c < 1) {
             var f = (v - c) / (1 - c);
             res = [hsv[0], c * 100, f * 100];
         } else {
@@ -81,8 +79,8 @@
     function hcg2hsl(hcg) {
         var c = hcg[1] / 100,
             g = hcg[2] / 100;
-        var l = g * (1.0 - c) + 0.5 * c, s = 0;
-        if (l < 1.0 && l > 0.0) {
+        var l = g * (1 - c) + 0.5 * c, s = 0;
+        if (l < 1 && l > 0) {
             if (l < 0.5) {
                 s = c / (2 * l);
             } else {
@@ -97,12 +95,12 @@
             l = hsl[2] / 100;
         var c = 0, res;
         if (l < 0.5) {
-            c = 2.0 * s * l;
+            c = 2 * s * l;
         } else {
-            c = 2.0 * s * (1.0 - l);
+            c = 2 * s * (1 - l);
         }
-        if (c < 1.0) {
-            var f = (l - 0.5 * c) / (1.0 - c);
+        if (c < 1) {
+            var f = (l - 0.5 * c) / (1 - c);
             res = [hsl[0], c * 100, f * 100];
         } else {
             res = [hsl[0], c * 100, 0];
@@ -114,7 +112,7 @@
     function hcg2hwb(hcg) {
         var c = hcg[1] / 100,
             g = hcg[2] / 100;
-        var v = c + g * (1.0 - c);
+        var v = c + g * (1 - c);
         return [hcg[0], (v - c) * 100, (1 - v) * 100];
     }
 
