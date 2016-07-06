@@ -41,3 +41,18 @@ Here is npm module: [hcg-color](https://www.npmjs.com/package/hcg-color)
 ### Where is located converter?
 
 Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js)
+
+### Module API
+```
+
+  var convert = require("hcg-color");
+  convert.rgb2hcg([0..255, 0..255, 0..255]); //Output: [0..360, 0..100, 0..100]
+  convert.hcg2rgb([0..360, 0..100, 0..100]); //Output: [0..255, 0..255, 0..255]
+  convert.hsv2hcg([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
+  convert.hcg2hsv([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
+  convert.hsl2hcg([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
+  convert.hcg2hsl([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
+  convert.hwb2hcg([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
+  convert.hcg2hwb([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
+  
+```
