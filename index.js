@@ -1,1 +1,1 @@
-Object.assign(exports.convert, require("convert"));
+Object.assign(exports, require("convert"));
