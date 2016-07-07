@@ -31,8 +31,8 @@
 
     // HSV
     var hsl2hsv = (hsl) => {
-        var [s, l] = [hsl[1] / 100, hsl[2] / 100];
-        l *= 2, s *= (l <= 1) ? l : 2 - l;
+        var [s, l] = [hsl[1] / 100, hsl[2] / 50];
+        s *= (l <= 1) ? l : 2 - l;
         var v = (l + s) / 2, sv = 0;
         if (l == 0) sv = (2 * s) / (l + s);
         return [hsl[0], sv * 100, v * 100];
