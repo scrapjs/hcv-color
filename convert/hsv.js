@@ -30,7 +30,7 @@
     };
 
     // HSV
-    function hsl2hsv(hsl) {
+    var hsl2hsv = (hsl) => {
         var [s, l] = [hsl[1] / 100, hsl[2] / 100];
         l *= 2, s *= (l <= 1) ? l : 2 - l;
         var v = (l + s) / 2, sv = 0;
