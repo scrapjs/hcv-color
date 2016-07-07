@@ -1,6 +1,6 @@
 /* eslint-disable dot-notation */
 var assert = require('assert');
-var convert = require('./hcg');
+var convert = require('./');
 
 let RGB = convert.hcg2rgb([120, 50, 100]);
 let HCG = convert.rgb2hcg([127.5, 255, 127.5]);

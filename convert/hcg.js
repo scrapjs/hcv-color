@@ -33,81 +33,40 @@
 
     // HSV functions
     var hcg2hsv = (hcg) => {
-        var c = hcg[1] / 100,
-            g = hcg[2] / 100;
-        var v = c + g * (1 - c), res;
-        if (v > 0) {
-            var f = c / v;
-            res = [hcg[0], f * 100, v * 100];
-        } else {
-            res = [hcg[0], 0, v * 100];
-        }
-        return res;
+        var [c, g] = [hcg[1] / 100, hcg[2] / 100], v = c + g * (1 - c), s = 0;
+        if (v > 0) s = c / v;
+        return [hcg[0], s * 100, v * 100];
     };
 
     var hsv2hcg = (hsv) => {
-        var s = hsv[1] / 100,
-            v = hsv[2] / 100;
-        var c = s * v, res;
-        if (c < 1) {
-            var f = (v - c) / (1 - c);
-            res = [hsv[0], c * 100, f * 100];
-        } else {
-            res = [hsv[0], c * 100, 0];
-        }
-        return res;
+        var [s, v] = [hsv[1] / 100, hsv[2] / 100], c = s * v, gr = 0;
+        if (c < 1) gr = (v - c) / (1 - c);
+        return [hsv[0], c * 100, gr * 100];
     };
 
     // HSL functions
     var hcg2hsl = (hcg) => {
-        var c = hcg[1] / 100,
-            g = hcg[2] / 100;
-        var l = g * (1 - c) + 0.5 * c, s = 0;
-        if (l < 1 && l > 0) {
-            if (l < 0.5) {
-                s = c / (2 * l);
-            } else {
-                s = c / (2 * (1 - l));
-            }
-        }
+        var c, g = [hcg[1] / 100, hcg[2] / 100], l = g * (1 - c) + 0.5 * c, s = 0;
+        if (l < 1 && l > 0) s = c / (1 - Math.abs(2 * l - 1));
         return [hcg[0], s * 100, l * 100];
     };
 
     var hsl2hcg = (hsl) => {
-        var s = hsl[1] / 100,
-            l = hsl[2] / 100;
-        var c = 0, res;
-        if (l < 0.5) {
-            c = 2 * s * l;
-        } else {
-            c = 2 * s * (1 - l);
-        }
-        if (c < 1) {
-            var f = (l - 0.5 * c) / (1 - c);
-            res = [hsl[0], c * 100, f * 100];
-        } else {
-            res = [hsl[0], c * 100, 0];
-        }
-        return res;
+        var [s, l] = [hsl[1] / 100, hsl[2] / 100], c = (1 - Math.abs(2 * l - 1)) * s, gr;
+        if (c < 1) gr = (l - 0.5 * c) / (1 - c);
+        return [hsl[0], c * 100, gr * 100];
     };
 
     // HWB functions
     var hcg2hwb = (hcg) => {
-        var c = hcg[1] / 100,
-            g = hcg[2] / 100;
-        var v = c + g * (1 - c);
+        var [c, g] = [hcg[1] / 100, hcg[2] / 100], v = c + g * (1 - c);
         return [hcg[0], (v - c) * 100, (1 - v) * 100];
     };
 
     var hwb2hcg = (hwb) => {
-        var w = hwb[1] / 100,
-            b = hwb[2] / 100;
-        var v = 1 - b,
-            c = v - w,
-            g = 0;
-        if (c < 1) {
-            g = (v - c) / (1 - c);
-        }
+        var [w, b] = [hwb[1] / 100, hwb[2] / 100];
+        var v = 1 - b, c = v - w, g = 0;
+        if (c < 1) g = (v - c) / (1 - c);
         return [hwb[0], c * 100, g * 100];
     };
 

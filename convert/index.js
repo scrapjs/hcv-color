@@ -1,1 +1,1 @@
-Object.assign(exports, require("./hcg"));
+Object.assign(exports, require("./hcg"), require("./hsv"), require("./hsl"));
