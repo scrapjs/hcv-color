@@ -22,12 +22,12 @@
     };
 
     var hcg2rgb = (hcg) => {
-        var modf = (a, n) => ((a % n) + n) % n;
+        var mod = (a, n) => ((a % n) + n) % n;
         var [h, c, gr] = [hcg[0] / 60, hcg[1] / 100, hcg[2] / 100];
         if (c <= 0) return [gr * 255, gr * 255, gr * 255];
         var [q, m] = [c * (1 - Math.abs((h % 2) - 1)), (1 - c) * gr];
-        var [mod, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
-        var [r, g, b] = [arr[modf(mod, 6)], arr[modf(mod - 2, 6)], arr[modf(mod - 4, 6)]];
+        var [md, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
+        var [r, g, b] = [arr[mod(md, 6)], arr[mod(md - 2, 6)], arr[mod(md - 4, 6)]];
         return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
     };
 
