@@ -44,6 +44,17 @@
         return [hsv[0], sl * 100, l * 50];
     };
 
+    // HWB
+    var hwb2hsv = (hwb) => {
+        var [w, b] = [hwb[1] / 100, hwb[2] / 100];
+        return [hwb[0], (1 - w / (1 - b)) * 100, (1 - b) * 100];
+    }
+
+    var hsv2hwb = (hsv) => {
+        var [s, v] = [hsv[1] / 100, hsv[2] / 100];
+        return [hsv[0], (1 - s) * v * 100, (1 - v) * 100];
+    };
+
     // Exports
     var exports = this;
 
@@ -56,8 +67,12 @@
     exports.rgb2hsv = rgb2hsv;
     exports.hsv2rgb = hsv2rgb;
 
-    // HSV export
+    // HSL export
     exports.hsl2hsv = hsl2hsv;
     exports.hsv2hsl = hsv2hsl;
+
+    // HWB export
+    exports.hwb2hsv = hwb2hsv;
+    exports.hsv2hwb = hsv2hwb;
 
 }).call(this);

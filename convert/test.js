@@ -25,3 +25,5 @@ assert.deepEqual( toFixed(convert.hsl2rgb(convert.rgb2hsl(rgb))), toFixed(rgb));
 assert.deepEqual( toFixed(convert.hsl2hcg(convert.hcg2hsl(hcg))), toFixed(hcg));
 assert.deepEqual( toFixed(convert.hsl2hsv(convert.hsv2hsl(hcg))), toFixed(hcg));
 assert.deepEqual( toFixed(convert.hsv2hcg(convert.hcg2hsv(hcg))), toFixed(hcg));
+assert.deepEqual( toFixed(convert.hwb2hcg(convert.hcg2hwb(hcg))), toFixed(hcg));
+assert.deepEqual( toFixed(convert.hwb2hsv(convert.hsv2hwb(hcg))), toFixed(hcg));
