@@ -29,7 +29,7 @@
         return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
     };
 
-    // HSV
+    // HSL
     var hsl2hsv = (hsl) => {
         var [s, l] = [hsl[1] / 100, hsl[2] / 50];
         s *= (l <= 1) ? l : 2 - l;
