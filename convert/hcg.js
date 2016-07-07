@@ -5,16 +5,11 @@
     'use strict';
 
     // RGB functions
-    function rgb2hcg(rgb) {
-        var r = rgb[0] / 255,
-            g = rgb[1] / 255,
-            b = rgb[2] / 255;
-        var max = Math.max(r, g, b),
-            min = Math.min(r, g, b),
-            c = (max - min),
-            gr = 0,
-            h = 0;
-        if (c < 1) { gr = min / (1 - c); }
+    var rgb2hcg = (rgb) => {
+        var [r, g, b] = [rgb[0] / 255, rgb[1] / 255, rgb[2] / 255];
+        var [min, max] = [Math.min(r, g, b), Math.max(r, g, b)];
+        var [h, c, gr] = [0, max - min, 0];
+        if (c < 1) gr = min / (1 - c);
         if (c > 0) {
             switch (max) {
                 case r: h = (g - b) / c + (g < b ? 6 : 0); break;
@@ -24,32 +19,20 @@
             h /= 6;
         }
         return [h * 360, c * 100, gr * 100];
-    }
+    };
 
-    function hcg2rgb(hcg) {
-        var h  = hcg[0] / 360 * 6,
-            c  = hcg[1] / 100,
-            gr = hcg[2] / 100;
-        if (c <= 0) {
-            return [gr * 255, gr * 255, gr * 255];
-        }
-        var i = Math.floor(h),
-            f = h - i,
-            q = c * (1 - f), t = c * f,
-            mod = i % 6,
-            r = [c, q, 0, 0, t, c][mod],
-            g = [t, c, c, q, 0, 0][mod],
-            b = [0, 0, t, c, c, q][mod],
-            m = (1 - c) * gr;
-        return [
-            (r + m) * 255,
-            (g + m) * 255,
-            (b + m) * 255
-        ];
-    }
+    var hcg2rgb = (hcg) => {
+        var modf = (a, n) => ((a % n) + n) % n;
+        var [h, c, gr] = [hcg[0] / 60, hcg[1] / 100, hcg[2] / 100];
+        if (c <= 0) return [gr * 255, gr * 255, gr * 255];
+        var [q, m] = [c * (1 - Math.abs((h % 2) - 1)), (1 - c) * gr];
+        var [mod, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
+        var [r, g, b] = [arr[modf(mod, 6)], arr[modf(mod - 2, 6)], arr[modf(mod - 4, 6)]];
+        return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
+    };
 
     // HSV functions
-    function hcg2hsv(hcg) {
+    var hcg2hsv = (hcg) => {
         var c = hcg[1] / 100,
             g = hcg[2] / 100;
         var v = c + g * (1 - c), res;
@@ -60,9 +43,9 @@
             res = [hcg[0], 0, v * 100];
         }
         return res;
-    }
+    };
 
-    function hsv2hcg(hsv) {
+    var hsv2hcg = (hsv) => {
         var s = hsv[1] / 100,
             v = hsv[2] / 100;
         var c = s * v, res;
@@ -73,10 +56,10 @@
             res = [hsv[0], c * 100, 0];
         }
         return res;
-    }
+    };
 
     // HSL functions
-    function hcg2hsl(hcg) {
+    var hcg2hsl = (hcg) => {
         var c = hcg[1] / 100,
             g = hcg[2] / 100;
         var l = g * (1 - c) + 0.5 * c, s = 0;
@@ -88,9 +71,9 @@
             }
         }
         return [hcg[0], s * 100, l * 100];
-    }
+    };
 
-    function hsl2hcg(hsl) {
+    var hsl2hcg = (hsl) => {
         var s = hsl[1] / 100,
             l = hsl[2] / 100;
         var c = 0, res;
@@ -106,17 +89,17 @@
             res = [hsl[0], c * 100, 0];
         }
         return res;
-    }
+    };
 
     // HWB functions
-    function hcg2hwb(hcg) {
+    var hcg2hwb = (hcg) => {
         var c = hcg[1] / 100,
             g = hcg[2] / 100;
         var v = c + g * (1 - c);
         return [hcg[0], (v - c) * 100, (1 - v) * 100];
-    }
+    };
 
-    function hwb2hcg(hwb) {
+    var hwb2hcg = (hwb) => {
         var w = hwb[1] / 100,
             b = hwb[2] / 100;
         var v = 1 - b,
@@ -126,7 +109,7 @@
             g = (v - c) / (1 - c);
         }
         return [hwb[0], c * 100, g * 100];
-    }
+    };
 
     // Exports
     var exports = this;
