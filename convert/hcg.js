@@ -46,13 +46,13 @@
 
     // HSL functions
     var hcg2hsl = (hcg) => {
-        var c, g = [hcg[1] / 100, hcg[2] / 100], l = g * (1 - c) + 0.5 * c, s = 0;
-        if (l < 1 && l > 0) s = c / (1 - Math.abs(2 * l - 1));
+        var [c, gr] = [hcg[1] / 100, hcg[2] / 100], l = gr * (1 - c) + 0.5 * c, s = 0;
+        if (l > 0 && l < 1) s = c / (1 - Math.abs(2 * l - 1));
         return [hcg[0], s * 100, l * 100];
     };
 
     var hsl2hcg = (hsl) => {
-        var [s, l] = [hsl[1] / 100, hsl[2] / 100], c = (1 - Math.abs(2 * l - 1)) * s, gr;
+        var [s, l] = [hsl[1] / 100, hsl[2] / 100], c = (1 - Math.abs(2 * l - 1)) * s, gr = 0;
         if (c < 1) gr = (l - 0.5 * c) / (1 - c);
         return [hsl[0], c * 100, gr * 100];
     };

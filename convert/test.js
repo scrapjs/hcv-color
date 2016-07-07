@@ -2,11 +2,26 @@
 var assert = require('assert');
 var convert = require('./');
 
-let RGB = convert.hcg2rgb([120, 50, 100]);
-let HCG = convert.rgb2hcg([127.5, 255, 127.5]);
+function toFixed(arr){
+    //console.log(arr);
+    return [arr[0].toFixed(2), arr[1].toFixed(2), arr[2].toFixed(2)]
+}
 
-console.log(RGB);
-console.log(HCG);
+//HCG test
+let rgb = [63.75, 191.25, 63.75];
+let hcg = [120, 50, 50];
 
-assert.deepEqual(RGB, [127.5, 255, 127.5]);
-assert.deepEqual(HCG, [120, 50, 100]);
+let RGB = convert.hcg2rgb(hcg);
+let HCG = convert.rgb2hcg(rgb);
+assert.deepEqual(RGB, rgb);
+assert.deepEqual(HCG, hcg);
+
+//Valid table-striped
+assert.deepEqual( toFixed(convert.hcg2rgb(convert.rgb2hcg(rgb))), toFixed(rgb));
+assert.deepEqual( toFixed(convert.hsv2rgb(convert.rgb2hsv(rgb))), toFixed(rgb));
+assert.deepEqual( toFixed(convert.hsl2rgb(convert.rgb2hsl(rgb))), toFixed(rgb));
+
+//HCG
+assert.deepEqual( toFixed(convert.hsl2hcg(convert.hcg2hsl(hcg))), toFixed(hcg));
+assert.deepEqual( toFixed(convert.hsl2hsv(convert.hsv2hsl(hcg))), toFixed(hcg));
+assert.deepEqual( toFixed(convert.hsv2hcg(convert.hcg2hsv(hcg))), toFixed(hcg));
