@@ -12,7 +12,7 @@ for(let height = 0; height < 1; height += 1 / 8){
     let dcounter = 0;
     for(let depth = 0;depth < 1; depth += 1 / 8){
         dcounter++;
-        for(let degree = 0; degree < 1; degree += 1 / (4 * dcounter)){
+        for(let degree = 0; degree < 1; degree += 1 / (2 * dcounter)){
             var x = Math.cos(degree * Math.PI * 2) * depth;
             var y = Math.sin(degree * Math.PI * 2) * depth;
             var z = height * 2;
