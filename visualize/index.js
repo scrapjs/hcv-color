@@ -1,15 +1,18 @@
 
 var convert = require("../convert");
-var plotly = require("plotly")("acterhd", "s01czt72bq");
+var plotly = require("plotly")("acterhd", "7cd7ouvqss");
 var trace = [];
 var colors = [];
 var ax = [];
 var ay = [];
 var az = [];
 
-for(let height = 0; height < 1; height += 0.05){
-    for(let depth = 0;depth < 1; depth += 0.1){
-        for(let degree = 0; degree < 1; degree += 0.025){
+
+for(let height = 0; height < 1; height += 1 / 8){
+    let dcounter = 0;
+    for(let depth = 0;depth < 1; depth += 1 / 8){
+        dcounter++;
+        for(let degree = 0; degree < 1; degree += 1 / (4 * dcounter)){
             var x = Math.cos(degree * Math.PI * 2) * depth;
             var y = Math.sin(degree * Math.PI * 2) * depth;
             var z = height * 2;
