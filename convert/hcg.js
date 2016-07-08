@@ -10,14 +10,7 @@
         let [min, max] = [Math.min(r, g, b), Math.max(r, g, b)];
         let [h, c, gr] = [0, max - min, 0];
         if (c < 1) gr = min / (1 - c);
-        if (c > 0) {
-            switch (max) {
-                case r: h = (g - b) / c + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / c + 2; break;
-                case b: h = (r - g) / c + 4; break;
-            }
-            h /= 6;
-        }
+        if (c > 0) h = [(g - b) / c + (g < b ? 6 : 0), (b - r) / c + 2, (r - g) / c + 4][[r, g, b].indexOf(max)] / 6;
         return [h * 360, c * 100, gr * 100];
     };
 
