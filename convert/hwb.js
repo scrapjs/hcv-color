@@ -16,7 +16,7 @@
         let [h, c] = [
             0,
             max - min
-        ]; 
+        ];
         let w = Math.min(r, g, b);
         let bl = 1 - Math.max(r, g, b);
         if (c > 0)
@@ -41,7 +41,7 @@
             w
         ];
         let [md, arr] = [
-            Math.floor(h) % 6,
+            utils.mod(Math.floor(h), 6),
             [c, q, 0, 0, q, c]
         ];
         let [r, g, b] = [

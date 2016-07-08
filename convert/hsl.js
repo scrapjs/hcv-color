@@ -33,7 +33,7 @@
             l - c / 2
         ];
         let [md, arr] = [
-            Math.floor(h) % 6,
+            utils.mod(Math.floor(h), 6),
             [c, q, 0, 0, q, c]
         ];
         let [r, g, b] = [
