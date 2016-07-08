@@ -8,7 +8,8 @@
     let rgb2hsv = (rgb) => {
         let [r, g, b] = [rgb[0] / 255, rgb[1] / 255, rgb[2] / 255];
         let [min, max] = [Math.min(r, g, b), Math.max(r, g, b)];
-        let [h, c, v] = [0, max - min, max], s = c / v;
+        let [h, c, v] = [0, max - min, max], s = 0;
+        if (v > 0) s = c / v;
         if (c > 0) h = [(g - b) / c + (g < b ? 6 : 0), (b - r) / c + 2, (r - g) / c + 4][[r, g, b].indexOf(max)];
         return [h * 60, s * 100, v * 100];
     };
