@@ -57,9 +57,10 @@
     };
 
     let hwb2hcg = (hwb) => {
-        let [w, b] = [hwb[1] / 100, hwb[2] / 100];
-        let v = 1 - b, c = v - w, g = 0;
-        if (c < 1) g = (v - c) / (1 - c);
+        let [w, b] = [hwb[1] / 100, hwb[2] / 100], r = w + b;
+        if (r >= 1) {w /= r; b /= r;}
+        let c = 1 - b - w, g = 0;
+        if (c < 1) g = w / (1 - c);
         return [hwb[0], c * 100, g * 100];
     };
 
