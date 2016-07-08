@@ -343,6 +343,7 @@ Object.assign(exports, require("./hcg"), require("./hsv"), require("./hsl"), req
             this.hSlider.appendTo(this.sliders[0]);this.sliders.append(this.hNum);this.sliders.append("<br>");
             this.cSlider.appendTo(this.sliders[0]);this.sliders.append(this.cNum);this.sliders.append("<br>");
             this.gSlider.appendTo(this.sliders[0]);this.sliders.append(this.gNum);this.sliders.append("<br>");
+            this.sliders.append("<br>");
 
             this.fields.append(this.field);
             this.fields.append(this.fill);
