@@ -40,7 +40,8 @@
     // HWB
     let hwb2hsv = (hwb) => {
         let [w, b] = [hwb[1] / 100, hwb[2] / 100];
-        return [hwb[0], (1 - w / (1 - b)) * 100, (1 - b) * 100];
+        let cn = w + b >= 1, v = cn ? w/(w+b) : (1 - b), s = (cn || b >= 1) ? 0 : (1 - w / (1 - b));
+        return [hwb[0], 100 * s, 100 * v];
     }
 
     let hsv2hwb = (hsv) => {
