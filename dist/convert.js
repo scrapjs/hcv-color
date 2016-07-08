@@ -21,7 +21,7 @@
         let [h, c, gr] = utils.mult(hcg, utils.hsxd);
         if (c <= 0) return utils.mult([0, 0, 0].fill(gr), utils.rgbm);
         let [q, m] = [c * (1 - Math.abs(h % 2 - 1)), (1 - c) * gr];
-        let [md, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
+        let [md, arr] = [utils.mod(Math.floor(h), 6), [c, q, 0, 0, q, c]];
         let [r, g, b] = [arr[utils.mod(md, 6)], arr[utils.mod(md - 2, 6)], arr[utils.mod(md - 4, 6)]];
         return utils.mult(utils.add([r, g, b], m), utils.rgbm);
     };
@@ -130,7 +130,7 @@
         let [h, s, l] = utils.mult(hsl, utils.hsxd);
         let c = (1 - Math.abs(2 * l - 1)) * s;
         let [q, m] = [c * (1 - Math.abs(h % 2 - 1)), l - c / 2];
-        let [md, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
+        let [md, arr] = [utils.mod(Math.floor(h), 6), [c, q, 0, 0, q, c]];
         let [r, g, b] = [arr[utils.mod(md, 6)], arr[utils.mod(md - 2, 6)], arr[utils.mod(md - 4, 6)]];
         return utils.mult(utils.add([r, g, b], m), utils.rgbm);
     };
@@ -172,7 +172,7 @@
         let [h, s, v] = utils.mult(hsv, utils.hsxd);
         let c = s * v;
         let [q, m] = [c * (1 - Math.abs(h % 2 - 1)), v - c];
-        let [md, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
+        let [md, arr] = [utils.mod(Math.floor(h), 6), [c, q, 0, 0, q, c]];
         let [r, g, b] = [arr[utils.mod(md, 6)], arr[utils.mod(md - 2, 6)], arr[utils.mod(md - 4, 6)]];
         return utils.mult(utils.add([r, g, b], m), utils.rgbm);
     };
@@ -263,7 +263,7 @@
         }
         let c = 1 - w - bl;
         let [q, m] = [c * (1 - Math.abs(h % 2 - 1)), w];
-        let [md, arr] = [Math.floor(h) % 6, [c, q, 0, 0, q, c]];
+        let [md, arr] = [utils.mod(Math.floor(h), 6), [c, q, 0, 0, q, c]];
         let [r, g, b] = [arr[utils.mod(md, 6)], arr[utils.mod(md - 2, 6)], arr[utils.mod(md - 4, 6)]];
         return utils.mult(utils.add([r, g, b], m), utils.rgbm);
     };
