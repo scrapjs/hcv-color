@@ -1,0 +1,52 @@
+.color-container {
+  width: 460px;
+  display: inline-block;
+  box-sizing: content-box;
+  overflow: hidden;
+  font-size: 12px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  font-family: Arial;
+}
+.color-sliders {
+  width: 460px;
+  display: block;
+  box-sizing: border-box;
+}
+.color-wheels {
+  float: left;
+  display: block;
+  width: 210px;
+  box-sizing: border-box;
+}
+.color-fields {
+  float: right;
+  display: block;
+  width: 230px;
+  box-sizing: border-box;
+}
+.color-number {
+  height: 24px;
+  width: 60px;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 0;
+}
+.color-field {
+  display: block;
+}
+.color-fill {
+  display: block;
+  width: 60px;
+  height: 48px;
+}
+canvas.color-input {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  line-height: 0;
+  margin: 0;
+}
