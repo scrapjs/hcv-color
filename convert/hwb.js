@@ -16,9 +16,9 @@
         let [h, c] = [
             0,
             max - min
-        ],
-            w = Math.min(r, g, b),
-            bl = 1 - Math.max(r, g, b);
+        ]; 
+        let w = Math.min(r, g, b);
+        let bl = 1 - Math.max(r, g, b);
         if (c > 0)
             h = [
                 (g - b) / c + (g < b ? 6 : 0),
