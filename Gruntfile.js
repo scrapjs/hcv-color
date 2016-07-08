@@ -11,7 +11,7 @@ grunt.initConfig({
                 transform: [["babelify"]]
             },
             files: {
-                "./client.js": ["./index.js"]
+                "./dist/convert.js": ["./index.js"]
             }
         }
     },
