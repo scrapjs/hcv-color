@@ -4,5 +4,5 @@ This future github project. Here I minify HSV and HSL code for ES6. Also you can
 
 ### Minifield
 
-- I already minified [HCG, HSV, HSL](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js) conversion.
+- I already minified [RGB, HCG, HSV, HSL](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js) conversion.
 - HCG project and death color coding unified
