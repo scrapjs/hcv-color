@@ -1,20 +1,16 @@
+
 /* eslint-disable dot-notation */
-var assert = require('assert');
-var convert = require('./');
+let assert = require('assert');
+let convert = require('./');
+let toFixed = (arr) => [arr[0].toFixed(2), arr[1].toFixed(2), arr[2].toFixed(2)]
 
-function toFixed(arr){
-    //console.log(arr);
-    return [arr[0].toFixed(2), arr[1].toFixed(2), arr[2].toFixed(2)]
-}
-
-//HCG test
+//Default test values
 let rgb = [63.75, 191.25, 63.75];
 let hcg = [120, 50, 50];
 
-let RGB = convert.hcg2rgb(hcg);
-let HCG = convert.rgb2hcg(rgb);
-assert.deepEqual(RGB, rgb);
-assert.deepEqual(HCG, hcg);
+// HCG test
+assert.deepEqual( toFixed(convert.hcg2rgb(hcg)), toFixed(rgb));
+assert.deepEqual( toFixed(convert.rgb2hcg(rgb)), toFixed(hcg));
 
 //Valid table-striped
 assert.deepEqual( toFixed(convert.hcg2rgb(convert.rgb2hcg(rgb))), toFixed(rgb));
