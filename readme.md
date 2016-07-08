@@ -22,6 +22,7 @@ The color model describes how a color can be color. For example. Either he is pu
 
 ### Demonstration and calculators
 
++ I visualized [HCG cylinder](https://plot.ly/~acterhd/8/)
 + Shadertoy visual demo of [HCG](https://www.shadertoy.com/view/ltSXRV), [HSL](https://www.shadertoy.com/view/XtjXRK), [HSV](https://www.shadertoy.com/view/4dVXDd), [Color Picker](https://www.shadertoy.com/view/ldK3Wh)
 + You can try HCG converter https://tonicdev.com/npm/hcg-color
 
@@ -33,21 +34,6 @@ npm install hcg-color
 
 Here is npm module: [hcg-color](https://www.npmjs.com/package/hcg-color)
 
-### Where is located converter?
+### API
 
-Here is main library [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js)
-
-### Module API
-```
-
-  var convert = require("hcg-color");
-  convert.rgb2hcg([0..255, 0..255, 0..255]); //Output: [0..360, 0..100, 0..100]
-  convert.hcg2rgb([0..360, 0..100, 0..100]); //Output: [0..255, 0..255, 0..255]
-  convert.hsv2hcg([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
-  convert.hcg2hsv([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
-  convert.hsl2hcg([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
-  convert.hcg2hsl([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
-  convert.hwb2hcg([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
-  convert.hcg2hwb([0..360, 0..100, 0..100]); //Output: [0..360, 0..100, 0..100]
-
-```
+Coming soon new API. 
