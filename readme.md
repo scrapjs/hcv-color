@@ -52,7 +52,7 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 ----------
 ## HCG (implementation)
 
-### Convertors
+### Implementation
 
 + Original convertor in [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js).
 + Converter https://github.com/scijs/color-space
