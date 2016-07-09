@@ -71,8 +71,6 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 + Visualized [HCG cylinder](https://plot.ly/~acterhd/8/)
 + Shadertoy visual demo of [HCG](https://www.shadertoy.com/view/ltSXRV), [HSL](https://www.shadertoy.com/view/XtjXRK), [HSV](https://www.shadertoy.com/view/4dVXDd), [Color Picker](https://www.shadertoy.com/view/ldK3Wh)
 + Try HCG converter https://tonicdev.com/npm/hcg-color
-+ HCG color picker https://acterhd.github.io/color-picker/
-
 
 ----------
 
