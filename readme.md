@@ -1,7 +1,6 @@
 # HCG (color model)
 > Color model [HCG](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
----------
 ## HCG (Article)
 
 ### Description
