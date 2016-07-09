@@ -94,5 +94,6 @@ convert.hsx2hsx([360..0, 100..0, 100..0]); // return [360..0, 100..0, 100..0]
 
 - acterhd (acterhd@gmail.com) - Author
 
-------
+
+
 > Repository made by acterhd in 2015 - 2016 years.
