@@ -1,19 +1,29 @@
 # HCG (color model)
 > Color model [HCG](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
-### Visualization
-
-<img src="/images/diagram.png?raw=true" alt="HCG model" width="400">
-
-HCG gray (achromatic) inside, and colors (chromatic) outside.
+---------
+## HCG (Article)
 
 ### Description
-Unlike the others, it adjusts the color hue and shade of gray. The HCG can change the whitish-yellow to grayish-yellow in just one shift slider. Changing channels HCG (channel "G") does not affect the brightness of a color shade HSV and HSL, but only changes the brightness of the mixed color of gray. Channel "C" is the coefficient of color, chromatic color depends on it.
+This color model invented in 2015. This color model is a 3 channel: H, C, and G. This color model is changing mixed gray color, instead of changing the brightness (luminance). This differs from the other color models, such as HSV and HSL.
+
+### Behavior
+Color model HCG has its own behavior. When you change the second channel (chroma), hue is mixed with a selected shade of gray (third channel). In this regard, there are some features in the conversion of RGB. If the C channel is set to 1, the G channel becomes undefined. If channel C is set to 0, the hue channel H is undefined. In this connection, RGB value must be chosen so that it was not a fully chromatic, nor completely achromatic.
 
 ### Motivation
-The color model describes how a color can be color. For example. Either he is pure red, or admixed with gray shades. Either he is completely gray. Other color models can be said as far as he is light as it is dark, and so on, while the HCG can be described as pure color. Because of this difference can be derived pure colors and mixed a shade of gray.
+This color model is set up to complement the set of color models such as HSB and HSL (and some other). This color model also reveals the essence of the color models, such as the value of the chroma. This color model solves the question: what kind of gray are mixed in the selected color shade, and how.
+
+### Visualization
+<img src="images/diagram.png" alt="#" height="200"> <img src="images/shader.png" alt="#" height="200">
+
+Figure 1. HCG diagram and visual shader
+
+Color model HCG has shades of gray in the middle, while the hue shades are not shaded at the edges of the cylinder (like HSV). This means that the HCG relies still on the hue. This is useful when you want to change the mixed shade of gray, without changing the value saturation.
 
 ### Simple conversion between HCG and RGB
+
+The whole algorithm for obtaining RGB color that is similar to the mixed hue (pure RGB) with a shade of gray, as the blending coefficient used chroma. The expression `G * (1 - C)` is the minimum value of RGB, and the value of channel C (chroma) is the delta of the minimum and maximum values of RGB. For these and crosstalk can find the inverse of H, C and G of RGB.
+
 ```
 # From
 hcg2rgb [h<6..0>, c<1..0>, gr<1..0>]
@@ -30,6 +40,15 @@ rgb2hcg [r<1..0>, g<1..0>, b<1..0>]
     g<0..1> = c < 1 ? m / (1 - c) : 0
     return [h, c, g]
 ```
+
+### Conclusion
+This color model is fairly easy to learn, easy to implement and has a variety of applications. For example a color picker, or editing graphics. It may also help in the virtual vision.
+
+### Reference
+-	HSL and HSV (https://en.wikipedia.org/wiki/HSL_and_HSV)
+-	Munsell color model (https://en.wikipedia.org/wiki/Munsell_color_system)
+-	Github repository (https://github.com/acterhd/hcg-color)
+
 
 ----------
 ## HCG (implementation)
@@ -70,3 +89,11 @@ convert.hsx2rgb([360..0, 100..0, 100..0]); // return [255..0, 255..0, 255..0]
 convert.rgb2hsx([255..0, 255..0, 255..0]); // return [360..0, 100..0, 100..0]
 convert.hsx2hsx([360..0, 100..0, 100..0]); // return [360..0, 100..0, 100..0]
 ```
+
+--------
+## Contributors and thanks
+
+- acterhd (acterhd@gmail.com) - Author
+
+------
+> Repository made by acterhd in 2015 - 2016 years.
