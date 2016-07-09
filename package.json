@@ -1,23 +1,11 @@
 {
   "name": "hcg-color",
   "description": "Adds HCG color model support for anything",
-  "version": "1.4.12",
+  "version": "2.0.0",
   "author": "Alexey S <acterhd@gmail.com>",
   "license": "MIT",
   "repository": "https://github.com/acterhd/hcg-color.git",
-  "scripts": {"test": "node convert/test.js"},
-  "keywords": ["hcg", "less"],
-  "files": ["./index.js"],
-  "main" : "./index.js",
-  "tonicExampleFilename": "./devtonic.js",
-  "devDependencies": {
-      "plotly": "latest",
-      "babel": "latest",
-      "grunt": "latest",
-      "browserify": "latest",
-      "babelify": "latest",
-      "babel-preset-es2015": "latest",
-      "grunt-babel": "latest",
-      "grunt-browserify": "latest"
-  }
+  "scripts": {"test": "node tests/index.js"},
+  "keywords": ["hcg"],
+  "main" : "./index.js"
 }

@@ -54,6 +54,7 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 
 ### Implementation
 
++ Death color by acterhd (https://github.com/acterhd/death-color)
 + Original convertor in [`./convert/hcg.js`](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js).
 + Converter https://github.com/scijs/color-space
 + Converter https://github.com/Qix-/color-convert
@@ -69,27 +70,9 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 + Try HCG converter https://tonicdev.com/npm/hcg-color
 + HCG color picker https://acterhd.github.io/color-picker/
 
+
 ----------
-## HCG (API)
 
-### Install by npm
-
-```
-npm install hcg-color
-```
-
-Here is npm module: [hcg-color](https://www.npmjs.com/package/hcg-color)
-
-### API
-
-```
-// where "hsx" - any color model of ["hcg", "hsv", "hsl", "hwb"]
-convert.hsx2rgb([360..0, 100..0, 100..0]); // return [255..0, 255..0, 255..0]
-convert.rgb2hsx([255..0, 255..0, 255..0]); // return [360..0, 100..0, 100..0]
-convert.hsx2hsx([360..0, 100..0, 100..0]); // return [360..0, 100..0, 100..0]
-```
-
---------
 ## Contributors and thanks
 
 - acterhd (acterhd@gmail.com) - Author
