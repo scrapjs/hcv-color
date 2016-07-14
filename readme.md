@@ -55,6 +55,7 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 ### Implementation
 
 + Death color by acterhd https://github.com/acterhd/death-color
++ Low-level library, visualizer https://github.com/acterhd/color-nuker
 + Converter https://github.com/scijs/color-space
 + Converter https://github.com/Qix-/color-convert
 + Plugin for D3 https://github.com/d3/d3-hcg
