@@ -62,6 +62,7 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 + Converter https://github.com/satya164/pigment
 + Plug-in for Less https://github.com/acterhd/less-hcg
 + Atom Editor (plugin) https://github.com/abe33/atom-pigments
++ HCG shade behavior like https://jsfiddle.net/3n1gm4/2yx6xLp9/
 
 ### Demonstration and calculators
 
