@@ -72,7 +72,7 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 
 ### Publications
 
-+ acterhd blog post (RUS) http://acterhd-blog.blogspot.ru/2016/07/blog-post.html
++ acterhd blog post (RUS) http://acterhd-blog.blogspot.ru/2016/07/hcg.html
 
 ----------
 
