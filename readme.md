@@ -70,6 +70,10 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 + Shadertoy visual demo of [HCG](https://www.shadertoy.com/view/ltSXRV), [HSL](https://www.shadertoy.com/view/XtjXRK), [HSV](https://www.shadertoy.com/view/4dVXDd), [Color Picker](https://www.shadertoy.com/view/ldK3Wh)
 + Color picker https://acterhd.github.io/color-picker/ (coming soon)
 
+### Publications
+
++ acterhd blog post (RUS) http://acterhd-blog.blogspot.ru/2016/07/blog-post.html
+
 ----------
 
 ## Contributors and thanks
