@@ -10,10 +10,10 @@
     let m = Math.min.apply(Math, rgb);
     let M = Math.max.apply(Math, rgb);
     let C = M - m;
-    let gbr = Array.from(rgb).map((v, i, arr)=> { return arr[mod(i - 1, 3)]; });
-    let brg = Array.from(rgb).map((v, i, arr)=> { return arr[mod(i - 2, 3)]; });
+    let gbr = rgb.map((v, i, arr)=> { return arr[mod(i - 1, 3)]; });
+    let brg = rgb.map((v, i, arr)=> { return arr[mod(i - 2, 3)]; });
     let G = C < 1 ? m / (1 - C) : 0;
-    let H = C > 0 ? Math.max.apply(Math, Array.from(rgb).map(function(v, i){
+    let H = C > 0 ? Math.max.apply(Math, rgb.map(function(v, i){
       let a = (brg[i] - gbr[i]) / C;
       let b = mod(a + shift[i], 6.0);
       return b * (M == v);
