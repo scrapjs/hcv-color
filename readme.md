@@ -9,7 +9,7 @@ I found new use cases for HCG in 2020 years...
 
 When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCG color space can be used for dark and light themes themes. 
 
-```css
+```scss
 .dark-theme {
   filter: invert(100%) hue-rotate(180deg);
   color: rgb(127, 127, 255);
@@ -22,7 +22,7 @@ When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I
 
 Can be represented as... 
 
-```css
+```scss
 .light-theme {
   $mod: 0; /* dark font */
   color: hcg(240, 50, $mod);
