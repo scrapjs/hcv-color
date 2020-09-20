@@ -1,6 +1,39 @@
 # HCG (color model)
 > Color model [HCG](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
+## Revision for 2020 
+
+I found new use cases for HCG in 2020 years...
+
+### Dark and light theme
+
+When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCG color space can be used for dark and light themes themes. 
+
+```css
+.dark-theme {
+  filter: invert(100%) hue-rotate(180deg);
+  color: rgb(127, 127, 255);
+}
+
+.light-theme {
+  color: rgb(0, 0, 127);
+}
+```
+
+Can be represented as... 
+
+```css
+.light-theme {
+  $mod: 0; /* dark font */
+  color: hcg(240, 50, $mod);
+}
+
+.dark-theme {
+  $mod: 100; /* light font */
+  color: hcg(240, 50, $mod);
+}
+```
+
 ## HCG (Article)
 
 ### Description
@@ -27,3 +60,4 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 -	HSL and HSV (https://en.wikipedia.org/wiki/HSL_and_HSV)
 -	Munsell color model (https://en.wikipedia.org/wiki/Munsell_color_system)
 -	Github repository (https://github.com/acterhd/hcg-color)
+
