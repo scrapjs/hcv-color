@@ -12,7 +12,8 @@ When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I
 ```scss
 .dark-theme {
   filter: invert(100%) hue-rotate(180deg);
-  color: rgb(127, 127, 255);
+  color: rgb(0, 0, 127);
+  //color: rgb(127, 127, 255);
 }
 
 .light-theme {
