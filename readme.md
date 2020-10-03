@@ -5,6 +5,14 @@
 
 I found new use cases for HCG in 2020 years...
 
+
+### Inverse your RGB color...
+
+Normal RGB equal normal HCG conversion (`H % 360deg, C (between 0.0 and 1.0), G (between 0.0 and 1.0)`).
+But invert RGB equal to `(H + 180deg) % 360deg, C, 1.0-G`. 
+Why? Because minimal value of RGB inverts into maximal, maximal value of RGB inverts into minimal, but Chroma doesn't changing... 
+
+
 ### Dark and light theme
 
 When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCG color space can be used for dark and light themes themes. 
