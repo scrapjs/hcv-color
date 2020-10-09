@@ -16,7 +16,7 @@ About 180deg rotate, currently I don't want give any mathematical proof, but the
 
 ### Dark and light theme
 
-When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCG color space can be used for dark and light themes themes. 
+When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCG color space can be used for dark and light themes themes. The point is that HCG reference values can allow you to make correct dark and light themes, using offsets in the "G" channel. The higher, the lighter, and vice versa. In this case, the colored parts of the site will remain colored or close to that. 
 
 ```scss
 .dark-theme {
@@ -43,6 +43,8 @@ Can be represented as...
   color: hcg(240, 50, $mod);
 }
 ```
+
+The HCG color model can play a key role in such dark and light themes as in a twitter post (https://twitter.com/steveschoger/status/1151160261170126850). 
 
 ## HCG (Article)
 
