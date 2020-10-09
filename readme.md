@@ -3,7 +3,7 @@
 
 ## Revision for 2020 
 
-I found new use cases for HCG in 2020 years...
+I found new use cases for HCG in 2020 years... I will also provide corrections and descriptions. 
 
 
 ### Inverse your RGB color...
