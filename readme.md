@@ -58,9 +58,12 @@ The HCG color model is a relatively new color model standing next to RGB, HSV, H
 ### Visualization
 <img src="images/diagram.png" alt="#" height="200">
 
-Figure 1. HCG diagram and visual shader
+Figure 1. HCG diagram...
 
 Color model HCG has shades of gray in the middle, while the hue shades are not shaded at the edges of the cylinder (like HSV). This means that the HCG relies still on the hue. This is useful when you want to change the mixed shade of gray, without changing the value saturation.
+
+### TODO: Required More Visuals
+For me needs time for more visualize examples and representations. Also needs theming example. 
 
 ### Simple conversion between HCG and RGB
 The whole algorithm for obtaining RGB color that is similar to the mixed hue (pure RGB) with a shade of gray, as the blending coefficient used chroma. The expression `G * (1 - C)` is the minimum value of RGB, and the value of channel C (chroma) is the delta of the minimum and maximum values of RGB. For these and crosstalk can find the inverse of H, C and G of RGB. The full version of conversion from HCG to RGB and back is presented in `convert/index.js` file. Some simplifications have also been made. 
