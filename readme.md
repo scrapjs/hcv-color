@@ -11,7 +11,7 @@ I found new use cases for HCG in 2020 years...
 Normal RGB equal normal HCG conversion i.e. `H % 360deg, C (between 0.0 and 1.0), G (between 0.0 and 1.0)`.
 But invert RGB equal to `(H + 180deg) % 360deg, C, 1.0 - G`. 
 Why? Because minimal value of RGB inverts into maximal, maximal value of RGB inverts into minimal, but Chroma doesn't changing... 
-About 180deg rotate, currently I don't want give any mathematical proof, there is has known facts from internets (for example, here https://stackoverflow.com/questions/1165107/how-do-i-invert-a-colour). 
+About 180deg rotate, currently I don't want give any mathematical proof, but there is has known facts from internets (for example, here https://stackoverflow.com/questions/1165107/how-do-i-invert-a-colour). 
 
 
 ### Dark and light theme
