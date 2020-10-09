@@ -1,6 +1,7 @@
 # HCG (color model)
 > Color model [HCG](https://github.com/acterhd/hcg-color/blob/master/convert/hcg.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
+
 ## Revision for 2020 
 
 I found new use cases for HCG in 2020 years... I will also provide corrections and descriptions. 
@@ -63,6 +64,15 @@ Color model HCG has shades of gray in the middle, while the hue shades are not s
 
 ### Simple conversion between HCG and RGB
 The whole algorithm for obtaining RGB color that is similar to the mixed hue (pure RGB) with a shade of gray, as the blending coefficient used chroma. The expression `G * (1 - C)` is the minimum value of RGB, and the value of channel C (chroma) is the delta of the minimum and maximum values of RGB. For these and crosstalk can find the inverse of H, C and G of RGB. The full version of conversion from HCG to RGB and back is presented in `convert/index.js` file. Some simplifications have also been made. 
+
+### More color model conversions 
+
+There presented NOT all color models conversions, but in general I was presented. 
+- https://github.com/helixd2s/hollow-color (author-made)
+- https://github.com/helixd2s/hcg-color/blob/master/convert/index.js (original)
+- https://github.com/Qix-/color-convert/blob/master/conversions.js (color-convert)
+- https://github.com/colorjs/color-space/blob/master/hcg.js (color-space by colorjs)
+
 
 ### Conclusion
 This color model is fairly easy to learn, easy to implement and has a variety of applications. For example a color picker, or editing graphics. It may also help in the virtual vision.
