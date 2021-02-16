@@ -76,6 +76,10 @@ There presented NOT all color models conversions, but in general I was presented
 - https://github.com/Qix-/color-convert/blob/master/conversions.js (color-convert)
 - https://github.com/colorjs/color-space/blob/master/hcg.js (color-space by colorjs)
 
+### Used in projects
+
+- https://codepen.io/meodai/full/zdgXJj (color distribution visualization)
+- https://farbvelo.elastiq.ch/ (color palette generator)
 
 ### Conclusion
 This color model is fairly easy to learn, easy to implement and has a variety of applications. For example a color picker, or editing graphics. It may also help in the virtual vision.
@@ -83,5 +87,5 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 ### Reference
 -	HSL and HSV (https://en.wikipedia.org/wiki/HSL_and_HSV)
 -	Munsell color model (https://en.wikipedia.org/wiki/Munsell_color_system)
--	Github repository (https://github.com/acterhd/hcg-color)
+-	Github repository (https://github.com/helixd2s/hcg-color)
 
