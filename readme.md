@@ -2,9 +2,9 @@
 
 > Color model [HCG](https://github.com/helixd2s/hcg-color/blob/master/convert/index.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
-### [Actual Repository](https://github.com/helixd2s/hcg-color)
-
 ## Revision for 2020 
+
+### [Actual Repository](https://github.com/helixd2s/hcg-color)
 
 I found new use cases for HCG in 2020 years... I will also provide corrections and descriptions. 
 
