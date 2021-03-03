@@ -70,7 +70,7 @@ The whole algorithm for obtaining RGB color that is similar to the mixed hue (pu
 
 ### More color model conversions 
 
-There presented NOT all color models conversions, but in general I was presented. 
+There presented NOT all possible color models conversions, but in general I was presented. 
 - https://github.com/helixd2s/hollow-color (author-made)
 - https://github.com/helixd2s/hcg-color/blob/master/convert/index.js (original)
 - https://github.com/Qix-/color-convert/blob/master/conversions.js (color-convert)
