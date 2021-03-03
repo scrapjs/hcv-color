@@ -75,6 +75,11 @@ There presented NOT all color models conversions, but in general I was presented
 - https://github.com/helixd2s/hcg-color/blob/master/convert/index.js (original)
 - https://github.com/Qix-/color-convert/blob/master/conversions.js (color-convert)
 - https://github.com/colorjs/color-space/blob/master/hcg.js (color-space by colorjs)
+- https://github.com/scijs/color-space
+- https://github.com/Qix-/color-convert
+- https://github.com/d3/d3-hcg
+- https://github.com/satya164/pigment
+- https://github.com/abe33/atom-pigments
 
 ### Used in projects
 
