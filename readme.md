@@ -81,7 +81,7 @@ There presented NOT all color models conversions, but in general I was presented
 - https://codepen.io/meodai/full/zdgXJj (color distribution visualization)
 - https://farbvelo.elastiq.ch/ (color palette generator)
 
-### Conclusion
+### Conclusion?
 This color model is fairly easy to learn, easy to implement and has a variety of applications. For example a color picker, or editing graphics. It may also help in the virtual vision.
 
 ### Reference
