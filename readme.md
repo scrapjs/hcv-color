@@ -140,3 +140,7 @@ describe the RGB system.
 I am currently working on further developing my MasterColorPicker project.
  Hope you like it.  Aloha!
 ```
+
+### The investigation dragged on
+
+This color model now raises more questions than answers. Many details were lost, other details remained only in the pictures in not the best quality. The true whole absolute truth can no longer be found. The investigation dragged on for 6 long years. And the idea as such has existed for about 8 years (at the time of writing these lines in the readme, `04.03.2021`). In the early years, there were attempts to get to the bottom of the truth, but in the end there were only hypotheses and theories (smells of REN-TV).
