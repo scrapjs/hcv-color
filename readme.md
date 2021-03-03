@@ -80,6 +80,7 @@ There presented NOT all color models conversions, but in general I was presented
 - https://github.com/d3/d3-hcg
 - https://github.com/satya164/pigment
 - https://github.com/abe33/atom-pigments
+- https://github.com/gka/chroma.js/
 
 ### Used in projects
 
