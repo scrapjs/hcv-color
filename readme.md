@@ -89,7 +89,7 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 -	Munsell color model (https://en.wikipedia.org/wiki/Munsell_color_system)
 -	Github repository (https://github.com/helixd2s/hcg-color)
 
-### Historical oversight or matrix glitch
+### Historical oversight or matrix glitch (2013)
 
 It is not known for certain who first came up with this color model. I only know that the idea of this color model came exactly in the same years as the author of MasterColorPicker (but I learned about it only much later). This oddity shows that this reality is clearly prone to matrix glitches. I thought for a long time whether it was worth writing about this in this document, and after many years I decided to restore this historical justice. List this project on a separate list (apart) as part of the sample collectible program.
 
