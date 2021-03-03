@@ -89,3 +89,54 @@ This color model is fairly easy to learn, easy to implement and has a variety of
 -	Munsell color model (https://en.wikipedia.org/wiki/Munsell_color_system)
 -	Github repository (https://github.com/helixd2s/hcg-color)
 
+### Historical oversight or matrix glitch
+
+It is not known for certain who first came up with this color model. I only know that the idea of this color model came exactly in the same years as the author of MasterColorPicker (but I learned about it only much later). This oddity shows that this reality is clearly prone to matrix glitches. I thought for a long time whether it was worth writing about this in this document, and after many years I decided to restore this historical justice. List this project on a separate list (apart) as part of the sample collectible program.
+
+- http://softmoon-webware.com/MasterColorPicker_instructions.php
+- https://github.com/SoftMoonWebWare/MasterColorPicker
+
+From my old email message... By MasterColorPicker author. 
+```
+I "invented" the HCG (Hue Chroma Gray) color model in 2012-2013 while
+developing my MasterColorPicker JavaScript software package.  I was trying
+to come up with a way to map/chart the "websafe" colors in a way that
+related them, like I could not find elsewhere.  Some guy had come close (I
+would have to do internet research now to remember who, and I am busy and
+lazy at the moment) and introduced me to the idea that many of these
+colors had the same Hue.  I arranged them on the map/chart a bit
+differently, and came up with a circular (color wheel) representation.  I
+strove to understand how to mathematically produce them and map them
+computationally (on a JavaScript powered HTML5 canvas) rather than being
+limited to a fixed size image that must be downloaded separately, looking
+at other color models and color spaces and mapping their numerical values
+over my visual map, trying to find correspondences.  Only when I looked at
+the RGB values did I see said relationships.  I also looked at concepts
+like color complements, split complements, and analogous colors.  I noted
+that there were 6 sets of websafe colors that shared the same hue, defined
+a complete triangle visually, and were complements and split complements.
+ Out of that came the formulas to map the websafe colors.  Then I realized
+I could use those formulas to create the HCG color space, and adjust the
+density of colors computationally mapped onto the canvas, and also adjust
+the "focal hue" on the map, and also the other full-triangle sets of hues,
+and create a powerful color picker.  I call it the "RainbowMeistro
+Harmonic Color Picker" because it helps a user choose colors with hues
+that go together, with the same greyscale and chroma.  See:
+SoftMoon-WebWare.com/MasterColorPicker_instructions.php
+for the demo. (MasterColorPicker must be capitalized as such in the URL)
+
+This package has been available on the internet on my website
+(SoftMoon-WebWare.com) and on the JSClasses.com repository since 2013, two
+years before you claim the Munsell-system created it.  There was also a
+reference to the package on GitHub, and maybe even the HCG code in 2013,
+but I had problems with GitHub's interface, and dropped it for a while.
+Now it is back on GitHub (SoftMoonWebWare/MasterColorPicker)  It would be
+nice if you could please give me proper credit, if you plan on being an
+accurate source of info.  However, it has always seemed to me that this is
+not a system I "invented", although a Google search years ago turned up
+nothing relevant but my single web page.  It is just another was to
+describe the RGB system.
+
+I am currently working on further developing my MasterColorPicker project.
+ Hope you like it.  Aloha!
+```
