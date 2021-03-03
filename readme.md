@@ -79,13 +79,13 @@ There presented NOT all possible color models conversions, but in general I was 
 - https://github.com/Qix-/color-convert
 - https://github.com/d3/d3-hcg
 - https://github.com/satya164/pigment
-- https://github.com/abe33/atom-pigments
 - https://github.com/gka/chroma.js/
 
 ### Used in projects
 
 - https://codepen.io/meodai/full/zdgXJj (color distribution visualization)
 - https://farbvelo.elastiq.ch/ (color palette generator)
+- https://github.com/abe33/atom-pigments 
 
 ### Conclusion?
 This color model is fairly easy to learn, easy to implement and has a variety of applications. For example a color picker, or editing graphics. It may also help in the virtual vision.
