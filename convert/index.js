@@ -21,7 +21,7 @@
     return [H / 6.0, C, V];
   };
 
-  let hcg2rgb = ([H, C, V])=>{
+  let hcv2rgb = ([H, C, V])=>{
     let h = H * 6.0;
     let rgb = Array.from([h, h, h]).map(function(v, i){
       let a = mod(v - shift[i], 6.0);
@@ -34,7 +34,7 @@
     });
   };
 
-  let convert = {rgb2hcg, hcg2rgb};
+  let convert = {rgb2hcv, hcv2rgb};
   if(typeof window != "undefined") window.convert = convert;
   if(typeof module != "undefined") Object.assign(module.exports, convert);
 
