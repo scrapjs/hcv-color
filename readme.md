@@ -4,7 +4,7 @@
 
 ## Revision for 2021, rename to HCV finally
 
-Formerly named as `HCG`, I decided to rename this color model as `HCV` (Hue, Chroma, Value). It should to help avoid confusion with `Human Chorionic Gonadotropin` terminology. Unfortunately, this will not completely eliminate the historical confusion. And many libraries are likely to keep their original name. 
+Formerly named as `HCG`, I decided to rename this color model as `HCV` (Hue, Chroma, Value). It should to help avoid confusion with `Human Chorionic Gonadotropin` terminology. Unfortunately, this will not completely eliminate the historical confusion. And many libraries are likely to keep their original name. Therefore, the color model will still retain the deprecated outdated name `HCG` as an alternative. 
 
 ## Revision for 2020 
 
