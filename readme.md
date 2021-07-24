@@ -23,7 +23,7 @@ About 180deg rotate, currently I don't want give any mathematical proof, but the
 
 ### Dark and light theme
 
-When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCV color space can be used for dark and light themes themes. The point is that HCV reference values can allow you to make correct dark and light themes, using offsets in the "G" channel. The higher, the lighter, and vice versa. In this case, the colored parts of the site will remain colored or close to that. 
+When I watch that or such video (https://www.youtube.com/watch?v=qimopjP6YoM), I understand that HCV color space can be used for dark and light themes themes. The point is that HCV reference values can allow you to make correct dark and light themes, using offsets in the "V" channel. The higher, the lighter, and vice versa. In this case, the colored parts of the site will remain colored or close to that. 
 
 ```scss
 .dark-theme {
@@ -59,7 +59,7 @@ The HCV color model can play a key role in such dark and light themes as in a tw
 HCV - is HSV/HSL based color model. This color model use 3 channel: H, C, and G. Changing mixed gray color, instead of changing the brightness (luminance). This differs from the other color models, such as HSV and HSL.
 
 ### Behavior
-The HCV color model is a relatively new color model standing next to RGB, HSV, HSL or HWB. It has its own distinctive features. The color model is represented by the mixing ratio of "H" (hue) and "G" (grayscale), where chromaticity depends on the "C" (chroma) channel. And how much higher the "C" value (chroma) is, so closer the color is to the pure value of hue. Lower "C" (chroma) values make the color gray and depend on the "G" channel. Unlike HSV, a color at a high "C" (chroma) value does not become black when the last channel (aka "G" channel) decreases, but changes only the mixed dominance value (e.g. whitish becomes darker and colored remains colored). There is also a difference from HSL where changing the "G" channel affects only grey tint, while hue and mixing ratio (channel "C", chroma) are preserved. However, conversion from RGB has its limitations. For example, absolutely chromatic values do not allow calculating the "G" channel (grayscale). Conversely, grayscale values (when R = G = B) do not allow to calculate "H" (hue).    
+The HCV color model is a relatively new color model standing next to RGB, HSV, HSL or HWB. It has its own distinctive features. The color model is represented by the mixing ratio of "H" (hue) and "V" (grayscale), where chromaticity depends on the "C" (chroma) channel. And how much higher the "C" value (chroma) is, so closer the color is to the pure value of hue. Lower "C" (chroma) values make the color gray and depend on the "V" channel. Unlike HSV, a color at a high "C" (chroma) value does not become black when the last channel (aka "V" channel) decreases, but changes only the mixed dominance value (e.g. whitish becomes darker and colored remains colored). There is also a difference from HSL where changing the "V" channel affects only grey tint, while hue and mixing ratio (channel "C", chroma) are preserved. However, conversion from RGB has its limitations. For example, absolutely chromatic values do not allow calculating the "V" channel (grayscale). Conversely, grayscale values (when R = G = B) do not allow to calculate "H" (hue).    
 
 ### Visualization
 <img src="images/diagram.png" alt="#" height="200">
