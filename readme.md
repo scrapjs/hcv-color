@@ -1,4 +1,4 @@
-# HCV (color model)
+# 🌈 HCV (color model, former HCG) 🌈 
 
 > Color model [HCV](https://github.com/helixd2s/hcv-color/blob/master/convert/index.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
