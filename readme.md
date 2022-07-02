@@ -2,6 +2,7 @@
 
 ## 💬 [Обсуждения/Discussions](https://github.com/helixd2s/about/discussions) 💬
 ## 🐞 [Баг-Репорты/Bug-Tracker](https://github.com/helixd2s/about/issues) 🐞
+## 🥀 [Акция скорби](https://github.com/helixd2s/unit-a/blob/main/docs/unit-a/personal.md) 🥀
 
 > Color model [HCV](https://github.com/helixd2s/hcv-color/blob/master/convert/index.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
