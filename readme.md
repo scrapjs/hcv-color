@@ -1,9 +1,8 @@
 # 🌈 HCV (color model, former HCG) 🌈 
 
-## 🚧 [Main Organization](https://github.com/hydra2s) 🚧
-## 💬 [Обсуждения/Discussions](https://github.com/hydra2s-info/about/discussions) 💬
-## 🐞 [Баг-Репорты/Bug-Tracker](https://github.com/hydra2s-info/about/issues) 🐞
-## 🥀 [Акция скорби](https://github.com/hydra2s-info/unit-a/blob/main/docs/unit-a/personal.md) 🥀
+### 🚧 [Main Organization](https://github.com/hydra2s) 🚧
+### 💬 [Обсуждения/Discussions](https://github.com/hydra2s-info/about/discussions) 💬
+### 🐞 [Баг-Репорты/Bug-Tracker](https://github.com/hydra2s-info/about/issues) 🐞
 
 > Color model [HCV](https://github.com/helixd2s/hcv-color/blob/master/convert/index.js) is an alternative to [HSV and HSL](https://en.wikipedia.org/wiki/HSL_and_HSV), derived by Munsell color system.
 
