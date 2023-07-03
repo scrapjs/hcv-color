@@ -1,37 +1,18 @@
-(()=>{
-
-  let mod = (a, n) => { return ((a % n) + n) % n; };
-
-  const shift = [0.0, 2.0, 4.0];
-
-  let rgb2hcv = (rgb) => {
-    let m = Math.min.apply(Math, rgb);
-    let M = Math.max.apply(Math, rgb);
-    let C = M - m;
-    let gbr = rgb.map((v, i, arr) => { return arr[mod(i - 2, 3)]; });
-    let brg = rgb.map((v, i, arr) => { return arr[mod(i - 1, 3)]; });
-    let V = C < 1 ? m / (1 - C) : 0;
-    let H = C > 0 ? Math.max.apply(Math, rgb.map((v, i) => {
-      let a = (gbr[i] - brg[i]) / C;
-      let b = mod(a + shift[i], 6.0);
-      return b * (M == v);
-    })) : 0.0;
+const shift = [0.0, 2.0, 4.0];
+const mod = (a, n) => (((a % n) + n) % n);
+export const rgb2hcv = (rgb) => {
+    const m = Math.min(...rgb.slice(0, 3));
+    const M = Math.max(...rgb.slice(0, 3));
+    const C = Math.min(Math.max(M - m, 0.0), 1.0);
+    const gbr = rgb.map((v, i, arr) => arr[mod(i - 2, 3)]);
+    const brg = rgb.map((v, i, arr) => arr[mod(i - 1, 3)]);
+    const V = C < 1 ? m / (1 - C) : 0;
+    const H = C > 0 ? Math.max(...rgb.map((v, i) => (mod((gbr[i] - brg[i]) / C + shift[i], 6.0) * (M == v)))) : 0.0;
     return [H / 6.0, C, V];
-  };
-
-  let hcv2rgb = ([H, C, V]) => {
-    let h = H * 6.0;
-    let rgb = Array.from([h, h, h]).map((v, i) => {
-      let a = mod(v - shift[i], 6.0);
-      let b = Math.abs(a - 3.0) - 1.0;
-      return Math.min(Math.max(b, 0.0), 1.0);
-    });
-    let m = V * (1 - C);
-    return rgb.map((ch) => { return ch * C + m; });
-  };
-
-  let convert = {rgb2hcv, hcv2rgb};
-  if(typeof window != "undefined") window.convert = convert;
-  if(typeof module != "undefined") Object.assign(module.exports, convert);
-
-})();
+};
+export const hcv2rgb = ([H, C, V]) => {
+    const h = H * 6.0;
+    const rgb = [h, h, h].map((v, i) => Math.min(Math.max(Math.abs(mod(v - shift[i], 6.0) - 3.0) - 1.0, 0.0), 1.0));
+    const m = V * (1 - C);
+    return rgb.map((ch) => ch * C + m);
+};

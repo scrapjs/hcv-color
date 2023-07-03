@@ -7,5 +7,6 @@
   "repository": "https://github.com/acterhd/hcg-color.git",
   "scripts": {"test": "node tests/index.js"},
   "keywords": ["hcg"],
-  "main" : "./convert/index.js"
+  "main" : "./convert/index.js",
+  "type": "module"
 }
